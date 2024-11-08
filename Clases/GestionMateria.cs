@@ -13,8 +13,17 @@ namespace Proyecto_DAE.Clases
         {
             using (var query = new RegistroAsistenciaContext())
             {
-                query.Materias.Add(materia);
-                query.SaveChanges();
+                var materiaExiste = query.Materias.Any(m => m.NombreMateria == materia.NombreMateria );
+
+                if (materiaExiste)
+                {
+                    MessageBox.Show("MATERIA YA EXISTENTE", "PRECAUCION!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else {                
+                    query.Materias.Add(materia);
+                    query.SaveChanges();
+
+                }
 
             }
         }
@@ -23,11 +32,23 @@ namespace Proyecto_DAE.Clases
         {
             using (var query = new RegistroAsistenciaContext())
             {
-                var gradoFind = query.Materias.Find(id);
-                gradoFind.NombreMateria = materia.NombreMateria;
-                gradoFind.DuracionDias = materia.DuracionDias;
-                gradoFind.Descripcion = materia.Descripcion;
-                query.SaveChanges();
+                var materiaExiste = query.Materias.
+                    Any(m => m.NombreMateria == materia.NombreMateria
+                        && m.IdMateria != materia.IdMateria);
+                if (materiaExiste)
+                {
+                    MessageBox.Show("MATERIA YA EXISTENTE", "PRECAUCION!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else { 
+                
+                    var gradoFind = query.Materias.Find(id);
+                    gradoFind.NombreMateria = materia.NombreMateria;
+                    gradoFind.DuracionDias = materia.DuracionDias;
+                    gradoFind.Descripcion = materia.Descripcion;
+                    query.SaveChanges();
+                
+                
+                }
 
             }
         }

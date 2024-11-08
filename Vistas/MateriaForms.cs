@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using MaterialSkin;
 using Microsoft.IdentityModel.Tokens;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
 
 namespace Proyecto_DAE.Vistas
 {
@@ -46,52 +47,31 @@ namespace Proyecto_DAE.Vistas
         }
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            if (!txtIdMateria.Text.IsNullOrEmpty())
+           DialogResult resultado = MessageBox.Show( "ESTA SEGURO QUE DESEA BORRAR ESTA MATERIA?", "CONFIRMAR ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (resultado == DialogResult.Yes)
             {
-                gestionMateria.DeleteMateria(int.Parse(txtIdMateria.Text));
-                CargarTabla();
-                ClearTxt();
+
+                if (!txtIdMateria.Text.IsNullOrEmpty())
+                {
+                    gestionMateria.DeleteMateria(int.Parse(txtIdMateria.Text));
+                    CargarTabla();
+                    ClearTxt();
+                }
+                else
+                {
+                    MessageBox.Show("SELECCIONA UNA MATERIA", "PRECAUCION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
             }
             else {
-                MessageBox.Show("SELECCIONA UNA MATERIA", "PRECAUCION", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
-        }
-
-        public Materia GetMateria()
-        {
-
-            materia = new Materia
-            {
-                NombreMateria = txtNombreMateria.Text,
-                DuracionDias = int.Parse(txtDuracion.Text),
-                Descripcion = txtDescripcion.Text,
-            };
-
-
-            return materia;
-        }
-
-
-
-        private void CargarTabla()
-        {
-            using (var query = new RegistroAsistenciaContext())
-            {
-                materiaList = query.Materias.AsNoTracking().ToList();
-
-                dataGridView1.DataSource = materiaList;
-
-                dataGridView1.Columns["MateriaGrados"].Visible = false;
-
-                dataGridView1.Columns["IdMateria"].HeaderText = "ID";
-                dataGridView1.Columns["NombreMateria"].HeaderText = "Nombre";
-                dataGridView1.Columns["DuracionDias"].HeaderText = "Duracion en dias";
-                dataGridView1.Columns["IdMateria"].HeaderText = "ID";
+                MessageBox.Show("Cancelado");
             }
 
+
         }
 
+        //SELECCION EN TABLA
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -110,7 +90,7 @@ namespace Proyecto_DAE.Vistas
         {
 
         }
-
+        //VALIDACION PARA INGRESAR NOMBRE DE MATERIA
         private void txtNombreMateria_TextChanged(object sender, EventArgs e)
         {
             if (!txtNombreMateria.Text.IsNullOrEmpty())
@@ -120,16 +100,73 @@ namespace Proyecto_DAE.Vistas
                 btnModificar.Enabled = true;
 
             }
-            else {
+            else
+            {
 
                 txtNombreMateria.BackColor = Color.LightPink;
                 btnAgregar.Enabled = false;
                 btnModificar.Enabled = false;
-                
+
             }
         }
 
-        private void ClearTxt() {
+
+        //VALIDACION PARA INGRESAR DESCRIPCION
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            if (!txtDescripcion.Text.IsNullOrEmpty())
+            {
+                txtDescripcion.BackColor = Color.White;
+                btnAgregar.Enabled = true;
+                btnModificar.Enabled = true;
+
+            }
+            else
+            {
+
+                txtDescripcion.BackColor = Color.LightPink;
+                btnAgregar.Enabled = false;
+                btnModificar.Enabled = false;
+
+            }
+        }
+
+        //FUNCIONES FUNCIONALIDADES
+        public Materia GetMateria()
+        {
+
+            materia = new Materia
+            {
+                NombreMateria = txtNombreMateria.Text,
+                DuracionDias = int.Parse(txtDuracion.Text),
+                Descripcion = txtDescripcion.Text,
+            };
+
+
+            return materia;
+        }
+
+
+ 
+        private void CargarTabla()
+        {
+            using (var query = new RegistroAsistenciaContext())
+            {
+                materiaList = query.Materias.AsNoTracking().ToList();
+
+                dataGridView1.DataSource = materiaList;
+
+                dataGridView1.Columns["MateriaGrados"].Visible = false;
+
+                dataGridView1.Columns["IdMateria"].HeaderText = "ID";
+                dataGridView1.Columns["NombreMateria"].HeaderText = "Nombre";
+                dataGridView1.Columns["DuracionDias"].HeaderText = "Duracion en dias";
+                dataGridView1.Columns["IdMateria"].HeaderText = "ID";
+            }
+
+        }
+        private void ClearTxt()
+        {
 
             txtNombreMateria.Clear();
             txtDescripcion.Clear();

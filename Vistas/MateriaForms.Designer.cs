@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             btnBorrar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
@@ -44,11 +43,9 @@
             txtNombreMateria = new TextBox();
             label1 = new Label();
             txtIdMateria = new TextBox();
-            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtDuracion).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // btnBorrar
@@ -97,9 +94,10 @@
             dataGridView1.Location = new Point(359, 65);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(304, 171);
+            dataGridView1.Size = new Size(448, 171);
             dataGridView1.TabIndex = 19;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
@@ -138,6 +136,7 @@
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(147, 50);
             txtDescripcion.TabIndex = 8;
+            txtDescripcion.TextChanged += txtDescripcion_TextChanged;
             // 
             // label4
             // 
@@ -201,15 +200,11 @@
             txtIdMateria.Size = new Size(53, 23);
             txtIdMateria.TabIndex = 0;
             // 
-            // errorProvider1
-            // 
-            errorProvider1.ContainerControl = this;
-            // 
             // MateriaForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(696, 316);
+            ClientSize = new Size(819, 316);
             Controls.Add(btnBorrar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
@@ -223,7 +218,6 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)txtDuracion).EndInit();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -244,6 +238,5 @@
         private TextBox txtDescripcion;
         private TextBox txtNombreMateria;
         private Label label6;
-        private ErrorProvider errorProvider1;
     }
 }
