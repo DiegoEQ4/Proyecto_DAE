@@ -11,15 +11,26 @@ namespace Proyecto_DAE.Clases
     {
 
         public void InsertClase(Clase clase) {
-            using (var query = new RegistroAsistenciaContext()) {            
-                query.Clases.Add(clase);
-                try
+            using (var query = new RegistroAsistenciaContext()) {
+
+                if (clase.IdMateriaDetalle == null || clase.IdMateriaDetalle == 0)
                 {
-                    query.SaveChanges();
+
+                    MessageBox.Show("SELECCIONA UNA MATERIA A IMPARTIR", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
-                catch (Exception ex) { 
-                    MessageBox.Show("Error: "+ ex);
+                else { 
+                
+                    query.Clases.Add(clase);
+                    try
+                    {
+                        query.SaveChanges();
+
+                    }
+                    catch (Exception ex) { 
+                        MessageBox.Show("Error: "+ ex);
+                    }
+                
                 }
             }
         }
@@ -30,7 +41,9 @@ namespace Proyecto_DAE.Clases
             using (var query = new RegistroAsistenciaContext())
             {
                 var clase_find  = query.Clases.Find(id);
+                if (clase_find != null) { 
                 
+                }
                 clase_find.ContenidoClase = clase.ContenidoClase;
                 clase_find.IdMateriaDetalle = clase.IdMateriaDetalle;
                 clase_find.DuracionHoras = clase.DuracionHoras;
@@ -41,11 +54,22 @@ namespace Proyecto_DAE.Clases
         public void DeleteClase(int id) {
 
             using (var query = new RegistroAsistenciaContext()) {
-
                 var clase_find = query.Clases.Find(id);
-                query.Clases.Remove(clase_find);
+                if (clase_find != null)
+                {
+                    query.Clases.Remove(clase_find);
+                    try
+                    {
+                        query.SaveChanges();
+                    }
+                    catch (Exception ex) {
 
-                query.SaveChanges();    
+                        MessageBox.Show("CLASE CONTIENE UNA ASISTENCIA BORRA ESA ASISTENCIA PARA ELIMINAR", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                    }
+                }
+
+
 
             
             }

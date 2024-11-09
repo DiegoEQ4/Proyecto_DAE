@@ -1,6 +1,7 @@
 ﻿using Proyecto_DAE.Modelos;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -14,9 +15,19 @@ namespace Proyecto_DAE.Clases
 
         public void InsertGrado(Grado grado)
         {
+
+
             using (var query = new RegistroAsistenciaContext()) {
-                query.Grados.Add(grado);
-                query.SaveChanges();
+
+                var gradoExiste = query.Grados.Any(g => g.NombreGrado == grado.NombreGrado && g.Seccion == grado.Seccion); //VALIDACION SI EXISTE ESE GRADO
+                if (gradoExiste)
+                {
+                    MessageBox.Show("GRADO YA EXISTENTE", "PRECAUCION!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else { 
+                    query.Grados.Add(grado);
+                    query.SaveChanges();                
+                }
 
             }
         }
@@ -25,12 +36,29 @@ namespace Proyecto_DAE.Clases
         {
             using (var query = new RegistroAsistenciaContext())
             {
-                var gradoFind = query.Grados.Find(id);
-                gradoFind.NombreGrado = grado.NombreGrado;
-                gradoFind.Seccion = grado.Seccion;
-                gradoFind.Cupos = grado.Cupos;
-                gradoFind.Anio = grado.Anio;
-                query.SaveChanges();
+
+                var gradoExiste = query.Grados.Any(g => g.NombreGrado == grado.NombreGrado && g.Seccion == grado.Seccion && g.IdGrado != id);
+                if (gradoExiste)
+                {
+                    MessageBox.Show("GRADO YA EXISTENTE", "PRECAUCION!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else {
+                    var gradoFind = query.Grados.Find(id);
+                    if (gradoFind != null)
+                    {
+                        gradoFind.NombreGrado = grado.NombreGrado;
+                        gradoFind.Seccion = grado.Seccion;
+                        gradoFind.Cupos = grado.Cupos;
+                        gradoFind.Anio = grado.Anio;
+                        query.SaveChanges();
+                        MessageBox.Show("Grado Actualizado");
+                    }
+                    else {
+
+                        MessageBox.Show("NO SE ENCONTRO NINGUN GRADO","ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                }
 
             }
         }
@@ -45,7 +73,7 @@ namespace Proyecto_DAE.Clases
                     query.SaveChanges();
                 
                 }catch (Exception ex) {
-                    MessageBox.Show("Error: Uno o mas estudiante se asocian a este grado no se puede eliminar" );
+                    MessageBox.Show("Error: Uno o mas estudiante se asocian a este grado no se puede eliminar", "ERROR",  MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }

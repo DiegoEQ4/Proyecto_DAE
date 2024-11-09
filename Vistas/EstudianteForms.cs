@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +17,6 @@ namespace Proyecto_DAE.Vistas
     {
 
         private List<Grado> grados;
-        private List<Estudiante> estudiantes;
 
         GestionEstudiantes gestionEstudiantes = new GestionEstudiantes();
 
@@ -29,8 +29,89 @@ namespace Proyecto_DAE.Vistas
         {
             CargarGrados();
             CargarTabla();
+
+
         }
 
+
+        
+        //AGREGAR
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Validaciones())
+            {
+                gestionEstudiantes.InsertEstudiante(GetEstudiante());
+                CargarTabla();
+            }
+        }
+        //EDITAR
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (Validaciones())
+            {
+                gestionEstudiantes.UpdateEstudiante(GetEstudiante(), int.Parse(txtCarnet.Text));
+                CargarTabla();
+            }
+        }
+        //BORRAR
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            gestionEstudiantes.DeleteEstudiante(int.Parse(txtCarnet.Text));
+            CargarTabla();
+        }
+
+
+        // SELECCION EN TABLA 
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selected = dataGridView1.SelectedRows[0];
+
+                txtCarnet.Text = selected.Cells["Carnet"].Value.ToString();
+                txtNombre.Text = selected.Cells["Nombre"].Value.ToString();
+                txtApellido.Text = selected.Cells["Apellido"].Value.ToString();
+                txtCorreo.Text = selected.Cells["Correo"].Value.ToString();
+                cmbGrado.SelectedValue = selected.Cells["IdGrado"].Value;
+                dateNacimiento.Text = selected.Cells["Nacimiento"].Value.ToString();
+
+            }
+        }
+
+        private void cmbGrado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void txtCarnet_TextChanged(object sender, EventArgs e)
+        {
+            ValidarCarnet();
+        }
+
+        private void txtCorreo_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+
+        private void btnPermitir_Click(object sender, EventArgs e)
+        {
+            btnAgregar.Enabled = true;
+            txtCarnet.Enabled = true;
+        }
+
+
+
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            ValidarNombreApellido();
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+            ValidarNombreApellido();
+        }
 
         private void CargarGrados()
         {
@@ -38,9 +119,10 @@ namespace Proyecto_DAE.Vistas
             {
                 grados = query.Grados.ToList();
 
+
                 cmbGrado.DataSource = grados;
                 cmbGrado.ValueMember = "IdGrado";
-                cmbGrado.DisplayMember = "NombreGrado";
+                cmbGrado.DisplayMember = "NombreCompleto";
             }
         }
 
@@ -48,15 +130,28 @@ namespace Proyecto_DAE.Vistas
         {
             using (var query = new RegistroAsistenciaContext())
             {
-                estudiantes = query.Estudiantes.ToList();
+                var estudiantes = (
+                        from e in query.Estudiantes
+                        join g in query.Grados
+                        on e.Grado equals g.IdGrado
+                        select new
+                        {
+                            Carnet = e.CarnetEstudiantes,
+                            Nombre = e.Nombre,
+                            Apellido = e.Apellido,
+                            Nacimiento = e.FechaNacimiento,
+                            Correo = e.CorreoInstitucional,
+                            IdGrado = g.IdGrado,
+                            Grado = g.NombreCompleto,
+                        }
+
+                    ).ToList();
 
                 dataGridView1.DataSource = estudiantes;
-
-                dataGridView1.Columns["DetalleAsistencia"].Visible = false;
-                dataGridView1.Columns["GradoNavigation"].Visible = false;
+                dataGridView1.Columns["IdGrado"].Visible = false;
             }
         }
-
+        // FUNCIONES 
         private Estudiante GetEstudiante()
         {
             int idGrado = 0;
@@ -81,46 +176,70 @@ namespace Proyecto_DAE.Vistas
             return estudiante;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        // VALIDACIONES!
+        private void ValidarNombreApellido()
         {
-            gestionEstudiantes.InsertEstudiante(GetEstudiante());
-            CargarTabla();
+            string nombrePattern = @"^[a-zA-Z\s]+$"; // Solo letras y espacios
+            bool nombreValido = !string.IsNullOrEmpty(txtNombre.Text) && Regex.IsMatch(txtNombre.Text, nombrePattern);
+            bool apellidoValido = !string.IsNullOrEmpty(txtApellido.Text) && Regex.IsMatch(txtApellido.Text, nombrePattern);
 
-        }
+            btnAgregar.Enabled = nombreValido && apellidoValido;
+            btnEditar.Enabled = nombreValido && apellidoValido;
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            gestionEstudiantes.UpdateEstudiante(GetEstudiante(), int.Parse(txtCarnet.Text));
-            CargarTabla();
-        }
-
-        private void btnBorrar_Click(object sender, EventArgs e)
-        {
-            gestionEstudiantes.DeleteEstudiante(int.Parse(txtCarnet.Text));
-            CargarTabla();
-        }
-
-
-        // SELECCION EN TABLA 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (!nombreValido)
             {
-                DataGridViewRow selected = dataGridView1.SelectedRows[0];
 
-                txtCarnet.Text = selected.Cells["CarnetEstudiantes"].Value.ToString();
-                txtNombre.Text = selected.Cells["Nombre"].Value.ToString();
-                txtApellido.Text = selected.Cells["Apellido"].Value.ToString();
-                txtCorreo.Text = selected.Cells["CorreoInstitucional"].Value.ToString();
-                cmbGrado.Text = selected.Cells["Grado"].Value.ToString();
-                dateNacimiento.Text = selected.Cells["FechaNacimiento"].Value.ToString();
+                txtNombre.Focus();
+            }
 
+            if (!apellidoValido)
+            {
+
+                txtApellido.Focus();
             }
         }
 
-        private void cmbGrado_SelectedIndexChanged(object sender, EventArgs e)
+        private bool Validaciones()
         {
+            return ValidarCarnet() & ValidarCorreo(); // El operador '&' asegura que ambas validaciones se ejecuten.
+        }
 
+        private bool ValidarCarnet()
+        {
+            bool carnetValido = !string.IsNullOrEmpty(txtCarnet.Text) && txtCarnet.Text.All(char.IsDigit);
+
+            if (carnetValido)
+            {
+                txtCarnet.BackColor = SystemColors.Window;
+            }
+            else
+            {
+                txtCarnet.BackColor = Color.LightCoral;
+                MessageBox.Show("El Carnet no es válido. Solo se permiten dígitos.", "Validación de Carnet", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            return carnetValido;
+        }
+
+        private bool ValidarCorreo()
+        {
+            string correoPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            bool correoValido = Regex.IsMatch(txtCorreo.Text, correoPattern);
+
+            if (correoValido)
+            {
+                txtCorreo.BackColor = SystemColors.Window;
+            }
+            else
+            {
+                txtCorreo.BackColor = Color.LightCoral;
+                MessageBox.Show("El correo electrónico no es válido.", "Validación de Correo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCorreo.Clear();
+
+            }
+
+            return correoValido;
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            txtSeccionGrado = new ComboBox();
             label7 = new Label();
             label4 = new Label();
             txtAnio = new TextBox();
@@ -43,7 +44,6 @@
             btnAgregar = new Button();
             btnModificar = new Button();
             btnBorrar = new Button();
-            txtSeccionGrado = new ComboBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtCupos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -68,6 +68,15 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Detalles de Grado";
             // 
+            // txtSeccionGrado
+            // 
+            txtSeccionGrado.FormattingEnabled = true;
+            txtSeccionGrado.Items.AddRange(new object[] { "A", "B", "C" });
+            txtSeccionGrado.Location = new Point(66, 104);
+            txtSeccionGrado.Name = "txtSeccionGrado";
+            txtSeccionGrado.Size = new Size(121, 23);
+            txtSeccionGrado.TabIndex = 12;
+            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -90,9 +99,11 @@
             // txtAnio
             // 
             txtAnio.Location = new Point(211, 21);
+            txtAnio.MaxLength = 4;
             txtAnio.Name = "txtAnio";
             txtAnio.Size = new Size(80, 23);
             txtAnio.TabIndex = 12;
+            txtAnio.TextChanged += txtAnio_TextChanged;
             // 
             // txtCupos
             // 
@@ -128,6 +139,7 @@
             txtNombreGrado.Name = "txtNombreGrado";
             txtNombreGrado.Size = new Size(100, 23);
             txtNombreGrado.TabIndex = 2;
+            txtNombreGrado.TextChanged += txtNombreGrado_TextChanged;
             // 
             // label1
             // 
@@ -199,15 +211,6 @@
             btnBorrar.Text = "Borrar";
             btnBorrar.UseVisualStyleBackColor = true;
             btnBorrar.Click += btnBorrar_Click;
-            // 
-            // txtSeccionGrado
-            // 
-            txtSeccionGrado.FormattingEnabled = true;
-            txtSeccionGrado.Items.AddRange(new object[] { "A", "B", "C" });
-            txtSeccionGrado.Location = new Point(66, 104);
-            txtSeccionGrado.Name = "txtSeccionGrado";
-            txtSeccionGrado.Size = new Size(121, 23);
-            txtSeccionGrado.TabIndex = 12;
             // 
             // GradoForms
             // 

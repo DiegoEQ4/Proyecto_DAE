@@ -93,45 +93,40 @@ namespace Proyecto_DAE.Vistas
         //VALIDACION PARA INGRESAR NOMBRE DE MATERIA
         private void txtNombreMateria_TextChanged(object sender, EventArgs e)
         {
-            if (!txtNombreMateria.Text.IsNullOrEmpty())
+            if (!txtNombreMateria.Text.IsNullOrEmpty() && !txtNombreMateria.Text.All(char.IsDigit))
             {
                 txtNombreMateria.BackColor = Color.White;
-                btnAgregar.Enabled = true;
-                btnModificar.Enabled = true;
 
             }
             else
             {
 
                 txtNombreMateria.BackColor = Color.LightPink;
-                btnAgregar.Enabled = false;
-                btnModificar.Enabled = false;
 
             }
+            ActualizarEstadoBotones();
         }
 
 
         //VALIDACION PARA INGRESAR DESCRIPCION
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
-            if (!txtDescripcion.Text.IsNullOrEmpty())
+            if (!txtDescripcion.Text.IsNullOrEmpty() && !txtDescripcion.Text.All(char.IsDigit))
             {
                 txtDescripcion.BackColor = Color.White;
-                btnAgregar.Enabled = true;
-                btnModificar.Enabled = true;
 
             }
             else
             {
 
                 txtDescripcion.BackColor = Color.LightPink;
-                btnAgregar.Enabled = false;
-                btnModificar.Enabled = false;
 
             }
+            ActualizarEstadoBotones();
         }
 
-        //FUNCIONES FUNCIONALIDADES
+
+        //FUNCIONES
         public Materia GetMateria()
         {
 
@@ -146,8 +141,16 @@ namespace Proyecto_DAE.Vistas
             return materia;
         }
 
+        private void ActualizarEstadoBotones()
+        {
+            bool nombreValido = !string.IsNullOrEmpty(txtNombreMateria.Text) && !txtNombreMateria.Text.All(char.IsDigit);
+            bool descripcionValido = !string.IsNullOrEmpty(txtDescripcion.Text) && !txtDescripcion.Text.All(char.IsDigit);
 
- 
+            btnAgregar.Enabled = nombreValido && descripcionValido;
+            btnModificar.Enabled = nombreValido && descripcionValido;
+        }
+
+
         private void CargarTabla()
         {
             using (var query = new RegistroAsistenciaContext())

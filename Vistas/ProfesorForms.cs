@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -32,22 +33,24 @@ namespace Proyecto_DAE.Vistas
         }
 
         //PERMISOS DEPENDIENDO DE OPCION
-        private void PermisosUser() {
+        private void PermisosUser()
+        {
 
-            if (idUser == 0) { 
-                
+            if (idUser == 0)
+            {
+
                 btnAgregar.Enabled = false;
                 txtCarnetProfe.Enabled = false;
             }
             else
             {
-                btnAgregar.Enabled=true;
-                txtCarnetProfe.Enabled=true;
+                btnAgregar.Enabled = true;
+                txtCarnetProfe.Enabled = true;
 
-                btnModificar.Enabled=false;
+                btnModificar.Enabled = false;
                 btnEliminar.Enabled = false;
             }
-        
+
         }
 
 
@@ -102,7 +105,7 @@ namespace Proyecto_DAE.Vistas
             {
                 DataGridViewRow selected = dataGridView1.SelectedRows[0];
 
-                
+
                 string nombreCompleto = selected.Cells["NombreProfesor"].Value.ToString();
                 string[] nombreSeparado = nombreCompleto.Split(' ');
 
@@ -128,5 +131,102 @@ namespace Proyecto_DAE.Vistas
             gestionProfes.DeleteProfe(int.Parse(txtCarnetProfe.Text));
             CargarTabla();
         }
+
+        private void txtNombreProfe_TextChanged(object sender, EventArgs e)
+        {
+            Validaciones();
+        }
+        private void txtApellidoProfe_TextChanged(object sender, EventArgs e)
+        {
+            Validaciones();
+        }
+
+        private void txtCorreoProfe_TextChanged(object sender, EventArgs e)
+        {
+            Validaciones();
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            Validaciones();
+        }
+
+        private void txtTitulo_TextChanged(object sender, EventArgs e)
+        {
+            Validaciones();
+        }
+
+        //VALIDACION DE LOS CAMPOS
+        private void Validaciones()
+        {
+
+            //VALIDACION NOMBRE
+            string nombrePattern = @"^(?!\s*$)[a-zA-Z\s]+$";
+            bool nombreValido = !string.IsNullOrEmpty(txtNombreProfe.Text) && Regex.IsMatch(txtNombreProfe.Text, nombrePattern);
+
+            if (nombreValido)
+            {
+                txtNombreProfe.BackColor = SystemColors.Window;
+            }
+            else
+            {
+                txtNombreProfe.BackColor = Color.LightCoral;
+            }
+            //VALIDACION APELLIDO
+            string apellidoPattern = @"^(?!\s*$)[a-zA-Z\s]+$";
+            bool apellidoValido = !string.IsNullOrEmpty(txtApellidoProfe.Text) && Regex.IsMatch(txtApellidoProfe.Text, apellidoPattern);
+
+            if (apellidoValido)
+            {
+                txtApellidoProfe.BackColor = SystemColors.Window;
+            }
+            else
+            {
+                txtApellidoProfe.BackColor = Color.LightCoral;
+            }
+
+            //VALIDACION CORREO
+            string correoPattern = @"^(?!\s*$)(?!.*\d)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"; // Expresión regular para correo válido
+            bool correoValido = !string.IsNullOrEmpty(txtCorreoProfe.Text) && Regex.IsMatch(txtCorreoProfe.Text, correoPattern);
+
+            if (correoValido)
+            {
+                txtCorreoProfe.BackColor = SystemColors.Window;
+            }
+            else
+            {
+                txtCorreoProfe.BackColor = Color.LightCoral;
+            }
+            //VALIDACION TELEFONO
+            string telefonoPattern = @"^\d{8}$";
+            bool telefonoValido = !string.IsNullOrEmpty(txtTelefono.Text) && Regex.IsMatch(txtTelefono.Text, telefonoPattern);
+
+            if (telefonoValido)
+            {
+                txtTelefono.BackColor = SystemColors.Window;
+            }
+            else
+            {
+                txtTelefono.BackColor = Color.LightCoral;
+            }
+
+            //VALIDACION TITULACION
+            bool tituloValido = !string.IsNullOrWhiteSpace(txtTitulo.Text);
+
+            if (tituloValido)
+            {
+                txtTitulo.BackColor = SystemColors.Window;
+            }
+            else
+            {
+                txtTitulo.BackColor = Color.LightCoral;
+            }
+
+            btnModificar.Enabled = apellidoValido && nombreValido && correoValido && telefonoValido && tituloValido;
+
+
+
+        }
+
     }
 }

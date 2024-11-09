@@ -94,6 +94,7 @@
             // 
             // txtGrado
             // 
+            txtGrado.Enabled = false;
             txtGrado.Location = new Point(843, 34);
             txtGrado.Name = "txtGrado";
             txtGrado.Size = new Size(121, 23);
@@ -126,6 +127,7 @@
             // 
             // txtMateria
             // 
+            txtMateria.Enabled = false;
             txtMateria.Location = new Point(843, 75);
             txtMateria.Name = "txtMateria";
             txtMateria.Size = new Size(121, 23);

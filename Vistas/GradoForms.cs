@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Proyecto_DAE.Clases;
 using Proyecto_DAE.Modelos;
 using System;
@@ -17,6 +18,7 @@ namespace Proyecto_DAE.Vistas
     public partial class GradoForms : Form
     {
         private Grado grado;
+        
         GestionGrado gestionGrado = new GestionGrado();
         RegistroAsistenciaContext context = new RegistroAsistenciaContext();
 
@@ -50,16 +52,23 @@ namespace Proyecto_DAE.Vistas
         {
             gestionGrado.UpdateGrado(GetGrado(), int.Parse(txtIdGrado.Text));
             context.SaveChanges();
-            MessageBox.Show("Grado Actualizado");
+
 
             CargarTabla();
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            gestionGrado.DeleteGrado(int.Parse(txtIdGrado.Text));
-            MessageBox.Show("Grado Eliminado");
-            CargarTabla();
+            if (!txtIdGrado.Text.IsNullOrEmpty())
+            {
+                gestionGrado.DeleteGrado(int.Parse(txtIdGrado.Text));
+                CargarTabla();
+            }
+            else
+            {
+                MessageBox.Show("SELECCIONA UN GRADO");
+
+            }
         }
 
         private Grado GetGrado()
@@ -88,6 +97,7 @@ namespace Proyecto_DAE.Vistas
 
             dataGridView1.Columns["Estudiantes"].Visible = false;
             dataGridView1.Columns["MateriaGrados"].Visible = false;
+            dataGridView1.Columns["NombreCompleto"].Visible = false;
 
             dataGridView1.Refresh();
 
@@ -112,6 +122,70 @@ namespace Proyecto_DAE.Vistas
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtNombreGrado_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNombreGrado.Text.IsNullOrEmpty())
+            {
+
+                txtNombreGrado.BackColor = Color.LightPink;
+
+            }
+            else
+            {
+                if (txtNombreGrado.Text.All(char.IsDigit))
+                {
+                    txtNombreGrado.BackColor = Color.LightPink;
+                }
+                else { 
+                    txtNombreGrado.BackColor = Color.White;
+                }
+
+            }
+            ActualizarEstadoBotones();
+        }
+
+
+        //VALIDACION DE AÑO
+        private void txtAnio_TextChanged(object sender, EventArgs e)
+        {
+            if (txtAnio.Text.IsNullOrEmpty())
+            {
+
+                txtAnio.BackColor = Color.LightPink;
+
+            }
+            else
+            {
+                if (int.TryParse(txtAnio.Text, out _))
+                {
+                    if (int.Parse(txtAnio.Text) > 1500)
+                    {
+                        txtAnio.BackColor = Color.White;
+
+                    }
+                    else {
+                        txtAnio.BackColor = Color.LightPink;
+
+                    }
+                }
+                else {
+                    txtAnio.BackColor = Color.LightPink;
+
+
+                }
+                ActualizarEstadoBotones();
+            }
+        }
+
+        private void ActualizarEstadoBotones()
+        {
+            bool nombreValido = !string.IsNullOrEmpty(txtNombreGrado.Text) && !txtNombreGrado.Text.All(char.IsDigit);
+            bool anioValido = int.TryParse(txtAnio.Text, out int anio) && anio > 1500;
+
+            btnAgregar.Enabled = nombreValido && anioValido;
+            btnModificar.Enabled = nombreValido && anioValido;
         }
     }
 }

@@ -32,24 +32,33 @@ namespace Proyecto_DAE.Clases
         {
             using (var query = new RegistroAsistenciaContext())
             {
-                var materiaExiste = query.Materias.
-                    Any(m => m.NombreMateria == materia.NombreMateria
-                        && m.IdMateria != materia.IdMateria);
+
+                var materiaExiste = query.Materias
+                    .Any(m => m.NombreMateria == materia.NombreMateria && m.IdMateria != id);
                 if (materiaExiste)
                 {
                     MessageBox.Show("MATERIA YA EXISTENTE", "PRECAUCION!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else { 
-                
-                    var gradoFind = query.Materias.Find(id);
-                    gradoFind.NombreMateria = materia.NombreMateria;
-                    gradoFind.DuracionDias = materia.DuracionDias;
-                    gradoFind.Descripcion = materia.Descripcion;
-                    query.SaveChanges();
-                
-                
-                }
+                else
+                {
+                    
+                    var materiaFind = query.Materias.Find(id); 
 
+                    if (materiaFind != null)
+                    {
+                        materiaFind.NombreMateria = materia.NombreMateria;
+                        materiaFind.DuracionDias = materia.DuracionDias;
+                        materiaFind.Descripcion = materia.Descripcion;
+                        query.SaveChanges();
+
+                        MessageBox.Show("Materia actualizada!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró la materia para actualizar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
             }
         }
 
@@ -62,7 +71,7 @@ namespace Proyecto_DAE.Clases
                 try {
                     query.SaveChanges();
                 }catch(Exception ex) {
-                    MessageBox.Show("SI UNA MATERIA ES IMPARTIDA NO PUEDE SER ELIMINADA","ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("SI UNA MATERIA ES IMPARTIDA NO PUEDE SER ELIMINADA || VERIFICA LA ASIGNACION DE MATERIAS","ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
                 }
 

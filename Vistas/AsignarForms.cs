@@ -19,10 +19,10 @@ namespace Proyecto_DAE.Vistas
         public List<Grado> grados;
         public List<Materia> materias;
 
-        public int idGrado;
-        public int idMateria;
-        public int idDetalle;
-        public int idProfe = 0;
+        public int idGrado = 0;
+        public int idMateria = 0;
+        public int idDetalle = 0;
+        public int idProfe;
 
         public AsignarForms()
         {
@@ -38,10 +38,10 @@ namespace Proyecto_DAE.Vistas
 
         private void dataGrados_SelectionChanged(object sender, EventArgs e)
         {
+            idDetalle = 0;
             if (dataGrados.SelectedRows.Count > 0)
             {
                 DataGridViewRow selected = dataGrados.SelectedRows[0];
-
                 txtGrado.Text = selected.Cells["NombreGrado"].Value.ToString();
                 var idgrado = selected.Cells["IdGrado"].Value.ToString();
                 idGrado = int.Parse(idgrado);
@@ -114,6 +114,7 @@ namespace Proyecto_DAE.Vistas
                 dataGrados.Columns["NombreGrado"].HeaderText = "Nombre";
 
                 dataGrados.Columns["IdGrado"].Visible = false;
+                dataGrados.Columns["NombreCompleto"].Visible = false;
                 dataGrados.Columns["Cupos"].Visible = false;
                 dataGrados.Columns["Estudiantes"].Visible = false;
                 dataGrados.Columns["MateriaGrados"].Visible = false;
@@ -157,7 +158,7 @@ namespace Proyecto_DAE.Vistas
 
         private void CargarDetalleMateria(int id)
         {
-
+            
             using (var query = new RegistroAsistenciaContext())
             {
                 //CONSULTA PARA OBTENER LOS DATOS 
@@ -219,21 +220,38 @@ namespace Proyecto_DAE.Vistas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            
             gestionAsignar.InsertMateria(GetMateriaGrado());
             CargarDetalleMateria(idGrado);
+               
+            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ID: " + idDetalle);
-            gestionAsignar.UpdateMateria(idDetalle, GetMateriaGrado());
-            CargarDetalleMateria(idGrado);
+            if (idDetalle != 0)
+            {
+                gestionAsignar.UpdateMateria(idDetalle, GetMateriaGrado());
+                CargarDetalleMateria(idGrado);
+            }
+            else {
+
+                MessageBox.Show("SELECCIONE UNA MATERIA ASIGNADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            gestionAsignar.DeleteMateria(idDetalle);
-            CargarDetalleMateria(idGrado);
+            if (idDetalle != 0)
+            {
+                gestionAsignar.DeleteMateria(idDetalle);
+                CargarDetalleMateria(idGrado);
+            }
+            else
+            {
+
+                MessageBox.Show("SELECCIONE UNA MATERIA ASIGNADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dataDetalleMateria_CellContentClick(object sender, DataGridViewCellEventArgs e)

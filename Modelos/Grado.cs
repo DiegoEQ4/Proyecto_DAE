@@ -18,4 +18,7 @@ public partial class Grado
     public virtual ICollection<Estudiante> Estudiantes { get; set; } = new List<Estudiante>();
 
     public virtual ICollection<MateriaGrado> MateriaGrados { get; set; } = new List<MateriaGrado>();
+
+
+    public string NombreCompleto => $"{NombreGrado} - {Seccion}";
 }

@@ -30,6 +30,7 @@ namespace Proyecto_DAE.Vistas
         {
             CargarClases();
             CargarMaterias();
+            Validacion();
         }
 
 
@@ -42,20 +43,48 @@ namespace Proyecto_DAE.Vistas
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            gestionClase.UpdateClase(int.Parse(txtID.Text), GetClase());
-            CargarClases();
+            if (!int.TryParse(txtID.Text, out idClase))
+            {
+
+                MessageBox.Show("SELECCIONA UNA CLASE", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                gestionClase.UpdateClase(int.Parse(txtID.Text),GetClase());
+                CargarClases();
+            }
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            gestionClase.DeleteClase(int.Parse(txtID.Text));
-            CargarClases();
+            if (!int.TryParse(txtID.Text, out idClase))
+            {
+
+                MessageBox.Show("SELECCIONA UNA CLASE", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                gestionClase.DeleteClase(int.Parse(txtID.Text));
+                CargarClases();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            idClase = int.Parse(txtID.Text);
-            ClaseAsistencia claseAsistencia = new ClaseAsistencia(idClase);
-            claseAsistencia.Show();
+            if (!int.TryParse(txtID.Text, out idClase))
+            {
+
+                MessageBox.Show("SELECCIONA UNA CLASE", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else { 
+            
+                idClase = int.Parse(txtID.Text);
+                ClaseAsistencia claseAsistencia = new ClaseAsistencia(idClase);
+                claseAsistencia.Show();
+            
+            }
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -179,5 +208,30 @@ namespace Proyecto_DAE.Vistas
         {
 
         }
+
+        private void txtContent_TextChanged(object sender, EventArgs e)
+        {
+            Validacion();
+        }
+
+        private void Validacion() {
+            bool contenidoValido = !string.IsNullOrWhiteSpace(txtContent.Text);
+            if (contenidoValido)
+            {
+
+                txtContent.BackColor = SystemColors.Window;
+                btnAgregar.Enabled = true;
+                btnEditar.Enabled = true;
+
+            }
+            else
+            {
+                txtContent.BackColor = Color.LightCoral;
+                btnAgregar.Enabled = false;
+                btnEditar.Enabled = false;
+            }
+
+        }
+
     }
 }

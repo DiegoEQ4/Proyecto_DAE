@@ -60,9 +60,10 @@
             // 
             // txtID
             // 
+            txtID.Enabled = false;
             txtID.Location = new Point(462, 42);
             txtID.Name = "txtID";
-            txtID.Size = new Size(100, 23);
+            txtID.Size = new Size(80, 23);
             txtID.TabIndex = 1;
             // 
             // label1
@@ -89,6 +90,7 @@
             txtContent.Name = "txtContent";
             txtContent.Size = new Size(187, 23);
             txtContent.TabIndex = 4;
+            txtContent.TextChanged += txtContent_TextChanged;
             // 
             // label2
             // 

@@ -62,6 +62,7 @@
             txtCarnet.Name = "txtCarnet";
             txtCarnet.Size = new Size(75, 23);
             txtCarnet.TabIndex = 1;
+            txtCarnet.TextChanged += txtCarnet_TextChanged;
             // 
             // txtApellido
             // 
@@ -69,6 +70,7 @@
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(100, 23);
             txtApellido.TabIndex = 2;
+            txtApellido.TextChanged += txtApellido_TextChanged;
             // 
             // txtNombre
             // 
@@ -76,6 +78,7 @@
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(100, 23);
             txtNombre.TabIndex = 3;
+            txtNombre.TextChanged += txtNombre_TextChanged;
             // 
             // txtCorreo
             // 
@@ -83,6 +86,7 @@
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(203, 23);
             txtCorreo.TabIndex = 4;
+            txtCorreo.TextChanged += txtCorreo_TextChanged;
             // 
             // label2
             // 

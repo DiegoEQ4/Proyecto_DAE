@@ -137,11 +137,17 @@ namespace Proyecto_DAE.Vistas
                 AsistenciaForms asistenciaForms = new AsistenciaForms(idAsistencia);
                 asistenciaForms.Show();
             }
-            else {
+            else
+            {
 
                 MessageBox.Show("SELECCIONA UNA ASISTENCIA!");
-            
+
             }
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

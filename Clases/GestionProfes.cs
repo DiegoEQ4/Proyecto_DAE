@@ -14,8 +14,22 @@ namespace Proyecto_DAE.Clases
         {
             using (var query = new RegistroAsistenciaContext())
             {
-                query.Profesors.Add(profesor);
-                query.SaveChanges();
+
+                var profesorExiste = query.Profesors.Any(p => p.CarnetProfesor == profesor.CarnetProfesor);//VALIDACION SI EXISTE ESE PROFESOR
+
+                if (!profesorExiste)
+                {
+
+                    query.Profesors.Add(profesor);
+                    query.SaveChanges();
+
+                }
+                else {
+
+                    MessageBox.Show("PROFESOR YA EXISTENTE", "PRECAUCION!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                
             }
         }
         public void UpdateProfes(Profesor profesor,int id)

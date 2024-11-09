@@ -31,7 +31,7 @@
             dataGrados = new DataGridView();
             dataAsistencia = new DataGridView();
             btnVer = new Button();
-            button2 = new Button();
+            btnBorrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGrados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataAsistencia).BeginInit();
             SuspendLayout();
@@ -68,21 +68,22 @@
             btnVer.UseVisualStyleBackColor = true;
             btnVer.Click += btnVer_Click;
             // 
-            // button2
+            // btnBorrar
             // 
-            button2.Location = new Point(765, 88);
-            button2.Name = "button2";
-            button2.Size = new Size(101, 37);
-            button2.TabIndex = 3;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = true;
+            btnBorrar.Location = new Point(765, 88);
+            btnBorrar.Name = "btnBorrar";
+            btnBorrar.Size = new Size(101, 56);
+            btnBorrar.TabIndex = 3;
+            btnBorrar.Text = "Borrar Asistencia";
+            btnBorrar.UseVisualStyleBackColor = true;
+            btnBorrar.Click += btnBorrar_Click;
             // 
             // ElegirAsistenciaForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(878, 346);
-            Controls.Add(button2);
+            Controls.Add(btnBorrar);
             Controls.Add(btnVer);
             Controls.Add(dataAsistencia);
             Controls.Add(dataGrados);
@@ -99,6 +100,6 @@
         private DataGridView dataGrados;
         private DataGridView dataAsistencia;
         private Button btnVer;
-        private Button button2;
+        private Button btnBorrar;
     }
 }
