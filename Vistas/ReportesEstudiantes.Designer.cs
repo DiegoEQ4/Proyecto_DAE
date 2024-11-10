@@ -29,27 +29,35 @@
         private void InitializeComponent()
         {
             dataGrados = new DataGridView();
-            dataEstudiantezs = new DataGridView();
+            dataEstudiantes = new DataGridView();
             btnCrearReporte = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGrados).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataEstudiantezs).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataEstudiantes).BeginInit();
             SuspendLayout();
             // 
             // dataGrados
             // 
             dataGrados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGrados.Location = new Point(33, 26);
+            dataGrados.MultiSelect = false;
             dataGrados.Name = "dataGrados";
+            dataGrados.ReadOnly = true;
+            dataGrados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGrados.Size = new Size(281, 282);
             dataGrados.TabIndex = 0;
+            dataGrados.SelectionChanged += dataGrados_SelectionChanged;
             // 
-            // dataEstudiantezs
+            // dataEstudiantes
             // 
-            dataEstudiantezs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataEstudiantezs.Location = new Point(348, 26);
-            dataEstudiantezs.Name = "dataEstudiantezs";
-            dataEstudiantezs.Size = new Size(281, 282);
-            dataEstudiantezs.TabIndex = 1;
+            dataEstudiantes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataEstudiantes.Location = new Point(348, 26);
+            dataEstudiantes.MultiSelect = false;
+            dataEstudiantes.Name = "dataEstudiantes";
+            dataEstudiantes.ReadOnly = true;
+            dataEstudiantes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataEstudiantes.Size = new Size(281, 282);
+            dataEstudiantes.TabIndex = 1;
+            dataEstudiantes.SelectionChanged += dataEstudiantes_SelectionChanged;
             // 
             // btnCrearReporte
             // 
@@ -59,6 +67,7 @@
             btnCrearReporte.TabIndex = 2;
             btnCrearReporte.Text = "Crear Reporte";
             btnCrearReporte.UseVisualStyleBackColor = true;
+            btnCrearReporte.Click += btnCrearReporte_Click;
             // 
             // ReportesEstudiantes
             // 
@@ -66,19 +75,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(666, 450);
             Controls.Add(btnCrearReporte);
-            Controls.Add(dataEstudiantezs);
+            Controls.Add(dataEstudiantes);
             Controls.Add(dataGrados);
             Name = "ReportesEstudiantes";
             Text = "Reportes de Estudiantes";
+            Load += ReportesEstudiantes_Load;
             ((System.ComponentModel.ISupportInitialize)dataGrados).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataEstudiantezs).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataEstudiantes).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private DataGridView dataGrados;
-        private DataGridView dataEstudiantezs;
+        private DataGridView dataEstudiantes;
         private Button btnCrearReporte;
     }
 }

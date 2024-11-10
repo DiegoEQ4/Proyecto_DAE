@@ -152,6 +152,7 @@
             reporteDeEstudiantesToolStripMenuItem.Name = "reporteDeEstudiantesToolStripMenuItem";
             reporteDeEstudiantesToolStripMenuItem.Size = new Size(194, 22);
             reporteDeEstudiantesToolStripMenuItem.Text = "Reporte de Estudiantes";
+            reporteDeEstudiantesToolStripMenuItem.Click += reporteDeEstudiantesToolStripMenuItem_Click;
             // 
             // label1
             // 
