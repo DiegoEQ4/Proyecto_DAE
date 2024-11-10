@@ -191,29 +191,59 @@ namespace Proyecto_DAE.Vistas
             using (var query = new RegistroAsistenciaContext())
             {
 
-
-                var materias = (from m in query.Materias
-                                join mg in query.MateriaGrados on m.IdMateria equals mg.IdMateriaDetalle
-                                join p in query.Profesors on mg.IdProfeDetalle equals p.CarnetProfesor
-                                join g in query.Grados on mg.IdGradoDetalle equals g.IdGrado
-                                where p.Usuario == idUsuario
-                                select new
-                                {
-
-                                    mg.IdMateriaGrado,
-                                    Nombre = m.NombreMateria + "-" + g.NombreGrado + " " + g.Seccion,
-
-                                }
-                                ).ToList();
-
-                foreach (var materia in materias)
+                if (SessionDatos.Tipo != 1)
                 {
-                    MessageBox.Show("Id: " + materia.Nombre);
-                }
 
-                cmbMateria.DataSource = materias;
-                cmbMateria.DisplayMember = "Nombre";
-                cmbMateria.ValueMember = "IdMateriaGrado";
+                    var materias = (from m in query.Materias
+                                    join mg in query.MateriaGrados on m.IdMateria equals mg.IdMateriaDetalle
+                                    join p in query.Profesors on mg.IdProfeDetalle equals p.CarnetProfesor
+                                    join g in query.Grados on mg.IdGradoDetalle equals g.IdGrado
+                                    where p.Usuario == idUsuario
+                                    select new
+                                    {
+
+                                        mg.IdMateriaGrado,
+                                        Nombre = m.NombreMateria + "-" + g.NombreGrado + " " + g.Seccion,
+
+                                    }
+                                    ).ToList();
+
+                    foreach (var materia in materias)
+                    {
+                        MessageBox.Show("Id: " + materia.Nombre);
+                    }
+
+                    cmbMateria.DataSource = materias;
+                    cmbMateria.DisplayMember = "Nombre";
+                    cmbMateria.ValueMember = "IdMateriaGrado";
+
+
+                }
+                else if(SessionDatos.Tipo == 1) {
+
+                    var materias = (from m in query.Materias
+                                    join mg in query.MateriaGrados on m.IdMateria equals mg.IdMateriaDetalle
+                                    join p in query.Profesors on mg.IdProfeDetalle equals p.CarnetProfesor
+                                    join g in query.Grados on mg.IdGradoDetalle equals g.IdGrado
+                                    select new
+                                    {
+
+                                        mg.IdMateriaGrado,
+                                        Nombre = m.NombreMateria + "-" + g.NombreGrado + " " + g.Seccion,
+
+                                    }
+                                   ).ToList();
+
+                    foreach (var materia in materias)
+                    {
+                        MessageBox.Show("Id: " + materia.Nombre);
+                    }
+
+                    cmbMateria.DataSource = materias;
+                    cmbMateria.DisplayMember = "Nombre";
+                    cmbMateria.ValueMember = "IdMateriaGrado";
+
+                }
 
 
             }

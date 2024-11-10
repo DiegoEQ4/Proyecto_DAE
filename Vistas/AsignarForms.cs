@@ -21,7 +21,7 @@ namespace Proyecto_DAE.Vistas
 
         public int idGrado = 0;
         public int idMateria = 0;
-        public int idDetalle = 0;
+        public int idDetalle;
         public int idProfe;
 
         public AsignarForms()
@@ -64,7 +64,7 @@ namespace Proyecto_DAE.Vistas
 
         private void dataDetalleMateria_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataMateria.SelectedRows.Count > 0)
+            if (dataDetalleMateria.SelectedRows.Count > 0)
             {
                 try
                 {
@@ -158,7 +158,6 @@ namespace Proyecto_DAE.Vistas
 
         private void CargarDetalleMateria(int id)
         {
-            idDetalle = 0;
             using (var query = new RegistroAsistenciaContext())
             {
                 //CONSULTA PARA OBTENER LOS DATOS 
@@ -229,6 +228,7 @@ namespace Proyecto_DAE.Vistas
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("error" + idDetalle);
             if (idDetalle != 0)
             {
                 gestionAsignar.UpdateMateria(idDetalle, GetMateriaGrado());

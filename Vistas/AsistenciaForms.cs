@@ -94,13 +94,11 @@ namespace Proyecto_DAE.Vistas
 
         private void btnPresente_Click(object sender, EventArgs e)
         {
+            int rowActual = dataGridView1.CurrentRow?.Index ?? -1;
             gestionAsistencia.EstadoAsistencia(1, idDetalle, txtObservacion.Text);
+            CargarAlumnos();
             if (dataGridView1.Rows.Count > 0)
             {
-
-                int rowActual = dataGridView1.CurrentRow?.Index ?? -1;
-
-
                 if (rowActual == -1 || rowActual == dataGridView1.Rows.Count - 1)
                 {
                     dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
@@ -112,17 +110,15 @@ namespace Proyecto_DAE.Vistas
                     dataGridView1.CurrentCell = dataGridView1.Rows[rowActual + 1].Cells[0];
                 }
             }
-            CargarAlumnos();
         }
 
         private void btnPermiso_Click(object sender, EventArgs e)
         {
+            int rowActual = dataGridView1.CurrentRow?.Index ?? -1;
             gestionAsistencia.EstadoAsistencia(2, idDetalle, txtObservacion.Text);
+            CargarAlumnos();
             if (dataGridView1.Rows.Count > 0)
             {
-
-                int rowActual = dataGridView1.CurrentRow?.Index ?? -1;
-
 
                 if (rowActual == -1 || rowActual == dataGridView1.Rows.Count - 1)
                 {
@@ -135,19 +131,17 @@ namespace Proyecto_DAE.Vistas
                     dataGridView1.CurrentCell = dataGridView1.Rows[rowActual + 1].Cells[0];
                 }
             }
-            CargarAlumnos();
+            
         }
 
         private void btnAusente_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("AUSENTE");
+
+            int rowActual = dataGridView1.CurrentRow?.Index ?? -1;
             gestionAsistencia.EstadoAsistencia(3, idDetalle, txtObservacion.Text);
+            CargarAlumnos();
             if (dataGridView1.Rows.Count > 0)
             {
-
-                int rowActual = dataGridView1.CurrentRow?.Index ?? -1;
-
-
                 if (rowActual == -1 || rowActual == dataGridView1.Rows.Count - 1)
                 {
                     dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
@@ -159,7 +153,7 @@ namespace Proyecto_DAE.Vistas
                     dataGridView1.CurrentCell = dataGridView1.Rows[rowActual + 1].Cells[0];
                 }
             }
-            CargarAlumnos();
+            
         }
 
 

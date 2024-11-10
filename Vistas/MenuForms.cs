@@ -9,16 +9,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MaterialSkin;
-using MaterialSkin.Controls;
 
 namespace Proyecto_DAE.Vistas
 {
 
     public partial class MenuForms : Form
     {
-
-
         int idUser;
         public MenuForms(int id)
         {
@@ -150,6 +146,12 @@ namespace Proyecto_DAE.Vistas
         {
             UsuarioForms usarioForms = new UsuarioForms();
             usarioForms.Show();
+        }
+
+        private void reportesDeAsistenciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReporteAsistenciaForms reporteAsistenciaForms = new ReporteAsistenciaForms();
+            reporteAsistenciaForms.Show();
         }
     }
 }

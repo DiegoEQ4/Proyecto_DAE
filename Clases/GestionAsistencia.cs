@@ -147,6 +147,7 @@ namespace Proyecto_DAE.Clases
                                 var asistencia = query.Asistencia.Find(id);
                                 query.Asistencia.Remove(asistencia);
                                 query.SaveChanges();
+                                break;
                             }
                         }
                         else

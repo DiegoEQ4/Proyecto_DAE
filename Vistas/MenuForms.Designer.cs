@@ -40,13 +40,13 @@
             gestionDeClasesToolStripMenuItem = new ToolStripMenuItem();
             gestionDeAsistenciasToolStripMenuItem = new ToolStripMenuItem();
             gestionUToolStripMenuItem = new ToolStripMenuItem();
+            reportesToolStripMenuItem = new ToolStripMenuItem();
+            reportesDeAsistenciaToolStripMenuItem = new ToolStripMenuItem();
+            reporteDeEstudiantesToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             lblUser = new Label();
             pictureBox1 = new PictureBox();
             btnCerrarSesion = new Button();
-            reportesToolStripMenuItem = new ToolStripMenuItem();
-            reportesDeAsistenciaToolStripMenuItem = new ToolStripMenuItem();
-            reporteDeEstudiantesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -133,6 +133,26 @@
             gestionUToolStripMenuItem.Text = "Gestion Usuarios";
             gestionUToolStripMenuItem.Click += gestionUToolStripMenuItem_Click;
             // 
+            // reportesToolStripMenuItem
+            // 
+            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reportesDeAsistenciaToolStripMenuItem, reporteDeEstudiantesToolStripMenuItem });
+            reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            reportesToolStripMenuItem.Size = new Size(141, 20);
+            reportesToolStripMenuItem.Text = "Generacion de reportes";
+            // 
+            // reportesDeAsistenciaToolStripMenuItem
+            // 
+            reportesDeAsistenciaToolStripMenuItem.Name = "reportesDeAsistenciaToolStripMenuItem";
+            reportesDeAsistenciaToolStripMenuItem.Size = new Size(194, 22);
+            reportesDeAsistenciaToolStripMenuItem.Text = "Reportes de Asistencia";
+            reportesDeAsistenciaToolStripMenuItem.Click += reportesDeAsistenciaToolStripMenuItem_Click;
+            // 
+            // reporteDeEstudiantesToolStripMenuItem
+            // 
+            reporteDeEstudiantesToolStripMenuItem.Name = "reporteDeEstudiantesToolStripMenuItem";
+            reporteDeEstudiantesToolStripMenuItem.Size = new Size(194, 22);
+            reporteDeEstudiantesToolStripMenuItem.Text = "Reporte de Estudiantes";
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -178,25 +198,6 @@
             btnCerrarSesion.Text = "Cerrar Sesion";
             btnCerrarSesion.UseVisualStyleBackColor = true;
             btnCerrarSesion.Click += btnCerrarSesion_Click;
-            // 
-            // reportesToolStripMenuItem
-            // 
-            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reportesDeAsistenciaToolStripMenuItem, reporteDeEstudiantesToolStripMenuItem });
-            reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            reportesToolStripMenuItem.Size = new Size(141, 20);
-            reportesToolStripMenuItem.Text = "Generacion de reportes";
-            // 
-            // reportesDeAsistenciaToolStripMenuItem
-            // 
-            reportesDeAsistenciaToolStripMenuItem.Name = "reportesDeAsistenciaToolStripMenuItem";
-            reportesDeAsistenciaToolStripMenuItem.Size = new Size(194, 22);
-            reportesDeAsistenciaToolStripMenuItem.Text = "Reportes de Asistencia";
-            // 
-            // reporteDeEstudiantesToolStripMenuItem
-            // 
-            reporteDeEstudiantesToolStripMenuItem.Name = "reporteDeEstudiantesToolStripMenuItem";
-            reporteDeEstudiantesToolStripMenuItem.Size = new Size(194, 22);
-            reporteDeEstudiantesToolStripMenuItem.Text = "Reporte de Estudiantes";
             // 
             // MenuForms
             // 
