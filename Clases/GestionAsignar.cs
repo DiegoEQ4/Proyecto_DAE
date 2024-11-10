@@ -59,8 +59,16 @@ namespace Proyecto_DAE.Clases
                 {
 
                     var materiaG_Find = query.MateriaGrados.Find(id);
-                    query.MateriaGrados.Remove(materiaG_Find);
-                    query.SaveChanges();
+                    if (materiaG_Find != null)
+                    {
+
+                        query.MateriaGrados.Remove(materiaG_Find);
+                        query.SaveChanges();
+
+                    }
+                    else {
+                        MessageBox.Show("NO SE ENCONTRO LA MATERIA A BORRAR", "ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
 
                 }
                 catch (Exception ex) {

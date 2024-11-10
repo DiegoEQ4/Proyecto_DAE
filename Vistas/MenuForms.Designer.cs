@@ -39,11 +39,14 @@
             gestionDeProfesorToolStripMenuItem = new ToolStripMenuItem();
             gestionDeClasesToolStripMenuItem = new ToolStripMenuItem();
             gestionDeAsistenciasToolStripMenuItem = new ToolStripMenuItem();
+            gestionUToolStripMenuItem = new ToolStripMenuItem();
+            reportesToolStripMenuItem = new ToolStripMenuItem();
+            reportesDeAsistenciaToolStripMenuItem = new ToolStripMenuItem();
+            reporteDeEstudiantesToolStripMenuItem = new ToolStripMenuItem();
             label1 = new Label();
             lblUser = new Label();
             pictureBox1 = new PictureBox();
             btnCerrarSesion = new Button();
-            gestionUToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -51,7 +54,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { gestionDeMateriaToolStripMenuItem, gestionDeGradoToolStripMenuItem, gestionHumanoToolStripMenuItem, gestionDeClasesToolStripMenuItem, gestionDeAsistenciasToolStripMenuItem, gestionUToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { gestionDeMateriaToolStripMenuItem, gestionDeGradoToolStripMenuItem, gestionHumanoToolStripMenuItem, gestionDeClasesToolStripMenuItem, gestionDeAsistenciasToolStripMenuItem, gestionUToolStripMenuItem, reportesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(890, 24);
@@ -123,6 +126,33 @@
             gestionDeAsistenciasToolStripMenuItem.Text = "Gestion de Asistencias";
             gestionDeAsistenciasToolStripMenuItem.Click += gestionDeAsistenciasToolStripMenuItem_Click;
             // 
+            // gestionUToolStripMenuItem
+            // 
+            gestionUToolStripMenuItem.Name = "gestionUToolStripMenuItem";
+            gestionUToolStripMenuItem.Size = new Size(107, 20);
+            gestionUToolStripMenuItem.Text = "Gestion Usuarios";
+            gestionUToolStripMenuItem.Click += gestionUToolStripMenuItem_Click;
+            // 
+            // reportesToolStripMenuItem
+            // 
+            reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reportesDeAsistenciaToolStripMenuItem, reporteDeEstudiantesToolStripMenuItem });
+            reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            reportesToolStripMenuItem.Size = new Size(141, 20);
+            reportesToolStripMenuItem.Text = "Generacion de reportes";
+            // 
+            // reportesDeAsistenciaToolStripMenuItem
+            // 
+            reportesDeAsistenciaToolStripMenuItem.Name = "reportesDeAsistenciaToolStripMenuItem";
+            reportesDeAsistenciaToolStripMenuItem.Size = new Size(194, 22);
+            reportesDeAsistenciaToolStripMenuItem.Text = "Reportes de Asistencia";
+            reportesDeAsistenciaToolStripMenuItem.Click += reportesDeAsistenciaToolStripMenuItem_Click;
+            // 
+            // reporteDeEstudiantesToolStripMenuItem
+            // 
+            reporteDeEstudiantesToolStripMenuItem.Name = "reporteDeEstudiantesToolStripMenuItem";
+            reporteDeEstudiantesToolStripMenuItem.Size = new Size(194, 22);
+            reporteDeEstudiantesToolStripMenuItem.Text = "Reporte de Estudiantes";
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -169,13 +199,6 @@
             btnCerrarSesion.UseVisualStyleBackColor = true;
             btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
-            // gestionUToolStripMenuItem
-            // 
-            gestionUToolStripMenuItem.Name = "gestionUToolStripMenuItem";
-            gestionUToolStripMenuItem.Size = new Size(107, 20);
-            gestionUToolStripMenuItem.Text = "Gestion Usuarios";
-            gestionUToolStripMenuItem.Click += gestionUToolStripMenuItem_Click;
-            // 
             // MenuForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -216,5 +239,8 @@
         private ToolStripMenuItem gestionDeAsistenciasToolStripMenuItem;
         private Button btnCerrarSesion;
         private ToolStripMenuItem gestionUToolStripMenuItem;
+        private ToolStripMenuItem reportesToolStripMenuItem;
+        private ToolStripMenuItem reportesDeAsistenciaToolStripMenuItem;
+        private ToolStripMenuItem reporteDeEstudiantesToolStripMenuItem;
     }
 }

@@ -21,9 +21,17 @@ namespace Proyecto_DAE.Clases
 
                 }
                 else {
-                
-                    query.Estudiantes.Add(estudiante);
-                    query.SaveChanges();
+                    if (estudiante.Grado != 0)
+                    {
+
+                        query.Estudiantes.Add(estudiante);
+                        query.SaveChanges();
+
+                    }
+                    else {
+                        MessageBox.Show("SELECCIONA UN GRADO SI NO ESTA CREADO, CREALO", "PRECAUCION!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
                 
                 } 
             }
