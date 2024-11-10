@@ -62,14 +62,14 @@ namespace Proyecto_DAE.Vistas
         private void gestionDeProfesorToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            DialogResult result = MessageBox.Show("Desea crear un nuevo usuario a un nuevo profesor?", "Crear Usuario?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Desea crear un nuevo usuario a un nuevo profesor?", "Crear Usuario?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
                 UserForm userForm = new UserForm();
                 userForm.ShowDialog();
             }
-            else
+            else if (result == DialogResult.No)
             {
                 int idUser = 0;
                 ProfesorForms profeForms = new ProfesorForms(idUser);
