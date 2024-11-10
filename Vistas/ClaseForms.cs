@@ -31,6 +31,13 @@ namespace Proyecto_DAE.Vistas
             CargarClases();
             CargarMaterias();
             Validacion();
+
+
+            if (SessionDatos.Tipo > 1)
+            {
+                btnEliminar.Enabled = false;
+            }
+
         }
 
 
@@ -116,28 +123,59 @@ namespace Proyecto_DAE.Vistas
 
             using (var query = new RegistroAsistenciaContext())
             {
+                if (SessionDatos.Tipo != 1)
+                {
 
-                var claseList = (from c in query.Clases
-                                 join mg in query.MateriaGrados
-                                 on c.IdMateriaDetalle equals mg.IdMateriaGrado
-                                 join m in query.Materias
-                                 on mg.IdMateriaDetalle equals m.IdMateria
-                                 join g in query.Grados
-                                 on mg.IdGradoDetalle equals g.IdGrado
-                                 join p in query.Profesors
-                                 on mg.IdProfeDetalle equals p.CarnetProfesor
-                                 where p.Usuario == idUsuario
-                                 select new
-                                 {
-                                     ID = c.IdClase,
-                                     Contenido = c.ContenidoClase,
-                                     Duracion = c.DuracionHoras,
-                                     IdMateria = mg.IdMateriaGrado,
-                                     Materia = m.NombreMateria,
-                                     Grado = g.NombreGrado + " " + g.Seccion,
-                                 }
-                    ).ToList();
-                dataGridView1.DataSource = claseList;
+                    var claseList = (from c in query.Clases
+                                     join mg in query.MateriaGrados
+                                     on c.IdMateriaDetalle equals mg.IdMateriaGrado
+                                     join m in query.Materias
+                                     on mg.IdMateriaDetalle equals m.IdMateria
+                                     join g in query.Grados
+                                     on mg.IdGradoDetalle equals g.IdGrado
+                                     join p in query.Profesors
+                                     on mg.IdProfeDetalle equals p.CarnetProfesor
+                                     where p.Usuario == idUsuario
+                                     select new
+                                     {
+                                         ID = c.IdClase,
+                                         Contenido = c.ContenidoClase,
+                                         Duracion = c.DuracionHoras,
+                                         IdMateria = mg.IdMateriaGrado,
+                                         Materia = m.NombreMateria,
+                                         Grado = g.NombreGrado + " " + g.Seccion,
+                                     }
+                        ).ToList();
+                    dataGridView1.DataSource = claseList;
+
+                }
+                else if (SessionDatos.Tipo == 1) {
+
+                    var claseList = (from c in query.Clases
+                                     join mg in query.MateriaGrados
+                                     on c.IdMateriaDetalle equals mg.IdMateriaGrado
+                                     join m in query.Materias
+                                     on mg.IdMateriaDetalle equals m.IdMateria
+                                     join g in query.Grados
+                                     on mg.IdGradoDetalle equals g.IdGrado
+                                     join p in query.Profesors
+                                     on mg.IdProfeDetalle equals p.CarnetProfesor
+                                     select new
+                                     {
+                                         ID = c.IdClase,
+                                         Contenido = c.ContenidoClase,
+                                         Duracion = c.DuracionHoras,
+                                         IdMateria = mg.IdMateriaGrado,
+                                         Materia = m.NombreMateria,
+                                         Grado = g.NombreGrado + " " + g.Seccion,
+                                     }
+                        ).ToList();
+                    dataGridView1.DataSource = claseList;
+
+
+
+
+                }
 
                 dataGridView1.Columns["IdMateria"].Visible = false;
 

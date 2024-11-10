@@ -38,7 +38,7 @@ namespace Proyecto_DAE.Vistas
 
         private void dataGrados_SelectionChanged(object sender, EventArgs e)
         {
-            idDetalle = 0;
+            
             if (dataGrados.SelectedRows.Count > 0)
             {
                 DataGridViewRow selected = dataGrados.SelectedRows[0];
@@ -158,7 +158,7 @@ namespace Proyecto_DAE.Vistas
 
         private void CargarDetalleMateria(int id)
         {
-            
+            idDetalle = 0;
             using (var query = new RegistroAsistenciaContext())
             {
                 //CONSULTA PARA OBTENER LOS DATOS 

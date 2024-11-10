@@ -69,6 +69,7 @@
             // 
             // txtCarnet
             // 
+            txtCarnet.Enabled = false;
             txtCarnet.Location = new Point(580, 41);
             txtCarnet.Name = "txtCarnet";
             txtCarnet.Size = new Size(73, 23);
@@ -106,6 +107,7 @@
             // 
             // txtNombre
             // 
+            txtNombre.Enabled = false;
             txtNombre.Location = new Point(580, 92);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(220, 23);
@@ -152,10 +154,12 @@
             // 
             // txtEstado
             // 
+            txtEstado.Enabled = false;
             txtEstado.Location = new Point(717, 137);
             txtEstado.Name = "txtEstado";
             txtEstado.Size = new Size(83, 23);
             txtEstado.TabIndex = 12;
+            txtEstado.TextChanged += txtEstado_TextChanged;
             // 
             // label3
             // 
@@ -173,6 +177,7 @@
             txtObservacion.Name = "txtObservacion";
             txtObservacion.Size = new Size(109, 66);
             txtObservacion.TabIndex = 14;
+            txtObservacion.TextChanged += txtObservacion_TextChanged;
             // 
             // label4
             // 

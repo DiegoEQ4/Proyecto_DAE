@@ -14,6 +14,8 @@ namespace Proyecto_DAE.Vistas
 {
     public partial class ElegirAsistenciaForms : Form
     {
+
+        GestionAsistencia gestionAsistencia = new GestionAsistencia();
         int idUsuario = SessionDatos.UserId;
         int idClase;
         int idAsistencia;
@@ -26,6 +28,12 @@ namespace Proyecto_DAE.Vistas
         private void ElegirAsistenciaForms_Load(object sender, EventArgs e)
         {
             CargarGrados();
+            CargarAsistencia();
+            if (SessionDatos.Tipo != 1)
+            {
+                btnBorrar.Enabled = false;
+            }
+
         }
 
         private void CargarGrados()
@@ -33,8 +41,33 @@ namespace Proyecto_DAE.Vistas
 
             using (var query = new RegistroAsistenciaContext())
             {
+                if (SessionDatos.Tipo != 1)
+                {
+                    var grados = (
+                            from g in query.Grados
+                            join mg in query.MateriaGrados
+                            on g.IdGrado equals mg.IdGradoDetalle
+                            join p in query.Profesors
+                            on mg.IdProfeDetalle equals p.CarnetProfesor
+                            join c in query.Clases
+                            on mg.IdMateriaGrado equals c.IdMateriaDetalle
+                            where p.Usuario == idUsuario
+                            select new
+                            {
+                                ID = c.IdClase,
+                                Contenido = c.ContenidoClase,
+                                Grado = g.NombreGrado,
+                                Seccion = g.Seccion
+                            }
 
-                var grados = (
+                        )
+                        .Distinct()
+                        .ToList();
+                    dataGrados.DataSource = grados;
+                }
+                else if (SessionDatos.Tipo == 1) {
+
+                    var grados = (
                         from g in query.Grados
                         join mg in query.MateriaGrados
                         on g.IdGrado equals mg.IdGradoDetalle
@@ -42,7 +75,6 @@ namespace Proyecto_DAE.Vistas
                         on mg.IdProfeDetalle equals p.CarnetProfesor
                         join c in query.Clases
                         on mg.IdMateriaGrado equals c.IdMateriaDetalle
-                        where p.Usuario == idUsuario
                         select new
                         {
                             ID = c.IdClase,
@@ -54,13 +86,15 @@ namespace Proyecto_DAE.Vistas
                     )
                     .Distinct()
                     .ToList();
+                    dataGrados.DataSource = grados;
+                } 
 
-                dataGrados.DataSource = grados;
             }
         }
 
         private void dataGrados_SelectionChanged(object sender, EventArgs e)
         {
+            idAsistencia = 0;
             if (dataGrados.SelectedRows.Count > 0)
             {
                 try
@@ -78,6 +112,7 @@ namespace Proyecto_DAE.Vistas
         }
         private void CargarAsistencia()
         {
+            idAsistencia = 0;
             using (var query = new RegistroAsistenciaContext())
             {
 
@@ -148,6 +183,35 @@ namespace Proyecto_DAE.Vistas
         private void btnBorrar_Click(object sender, EventArgs e)
         {
 
+            if (idAsistencia != 0)
+            {
+
+                gestionAsistencia.BorrarAsistencia(idAsistencia);
+                CargarAsistencia();
+
+            }
+            else {
+
+                MessageBox.Show("SELECCIONA UNA ASISTENCIA", "ADVERTEBCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            
+            }
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            if (idClase==0)
+            {
+
+                MessageBox.Show("SELECCIONA UNA CLASE", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                ClaseAsistencia claseAsistencia = new ClaseAsistencia(idClase);
+                claseAsistencia.Show();
+                this.Close();
+
+            }
         }
     }
 }

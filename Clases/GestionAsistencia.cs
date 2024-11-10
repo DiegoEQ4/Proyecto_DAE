@@ -117,8 +117,64 @@ namespace Proyecto_DAE.Clases
                 }
             
             }
+        }
 
+        public void BorrarAsistencia(int id) {
 
+            using (var query = new RegistroAsistenciaContext()) {
+
+                var detalleFind = query.DetalleAsistencia
+                    .Where(da => da.IdAsistencia == id)
+                    .ToList();
+
+                MessageBox.Show("deta" + detalleFind);
+                if (detalleFind.Count > 0)
+                {
+
+                    foreach (var detalle in detalleFind)
+                    {
+
+                        int? idDetalle = detalle.IdDetalleAsistencia;
+                        MessageBox.Show("A ver" + idDetalle);
+                        var detalles = query.DetalleAsistencia.Find(idDetalle);
+                        if (detalles != null)
+                        {
+
+                            query.DetalleAsistencia.Remove(detalles);
+                            var resultD = query.SaveChanges();
+                            if (resultD > 0)
+                            {
+                                var asistencia = query.Asistencia.Find(id);
+                                query.Asistencia.Remove(asistencia);
+                                query.SaveChanges();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No hay detalle para borrar");
+                            DialogResult result = MessageBox.Show("Desea borrar la asistencia?", "NO HAY DETALLES", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                var asistencia = query.Asistencia.Find(id);
+                                query.Asistencia.Remove(asistencia);
+                                query.SaveChanges();
+                            }
+                        }
+                    }
+                } else {
+                    MessageBox.Show("No hay detalle para borrar");
+                    DialogResult result = MessageBox.Show("Desea borrar la asistencia?", "NO HAY DETALLES", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        var asistencia = query.Asistencia.Find(id);
+                        query.Asistencia.Remove(asistencia);
+                        query.SaveChanges();
+                    }
+                }
+            }
+
+        
+        
         }
     }
 }

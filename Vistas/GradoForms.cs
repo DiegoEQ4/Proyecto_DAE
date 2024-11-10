@@ -22,6 +22,7 @@ namespace Proyecto_DAE.Vistas
         GestionGrado gestionGrado = new GestionGrado();
         RegistroAsistenciaContext context = new RegistroAsistenciaContext();
 
+
         public GradoForms()
         {
             InitializeComponent();
@@ -30,6 +31,11 @@ namespace Proyecto_DAE.Vistas
         private void GradoForms_Load(object sender, EventArgs e)
         {
             CargarTabla();
+            if (SessionDatos.Tipo > 1)
+            {
+                btnBorrar.Enabled = false;
+            }
+
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -187,5 +193,6 @@ namespace Proyecto_DAE.Vistas
             btnAgregar.Enabled = nombreValido && anioValido;
             btnModificar.Enabled = nombreValido && anioValido;
         }
+
     }
 }

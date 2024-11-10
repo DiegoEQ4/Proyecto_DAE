@@ -21,11 +21,23 @@ namespace Proyecto_DAE
         private void button1_Click(object sender, EventArgs e)
         {
             int idUser = login.VerificarUser(txtUsuario.Text, txtContrasena.Text);
-            if (idUser!= 0)
+            if (idUser != 0)
             {
                 MenuForms menuF = new MenuForms(idUser);
                 menuF.Show();
                 this.Hide();
+            }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Estás seguro de que quieres salir?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                MessageBox.Show("Cancelado."); // Cancela el cierre solo si se selecciona "No"
+            }
+            else
+            {
+                Application.Exit(); // Asegura que toda la aplicación finaliza
             }
         }
     }

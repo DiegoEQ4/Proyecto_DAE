@@ -32,6 +32,7 @@
             dataAsistencia = new DataGridView();
             btnVer = new Button();
             btnBorrar = new Button();
+            btnCrear = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGrados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataAsistencia).BeginInit();
             SuspendLayout();
@@ -42,6 +43,7 @@
             dataGrados.Location = new Point(19, 34);
             dataGrados.MultiSelect = false;
             dataGrados.Name = "dataGrados";
+            dataGrados.ReadOnly = true;
             dataGrados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGrados.Size = new Size(379, 291);
             dataGrados.TabIndex = 0;
@@ -53,6 +55,7 @@
             dataAsistencia.Location = new Point(417, 36);
             dataAsistencia.MultiSelect = false;
             dataAsistencia.Name = "dataAsistencia";
+            dataAsistencia.ReadOnly = true;
             dataAsistencia.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataAsistencia.Size = new Size(342, 291);
             dataAsistencia.TabIndex = 1;
@@ -70,7 +73,7 @@
             // 
             // btnBorrar
             // 
-            btnBorrar.Location = new Point(765, 88);
+            btnBorrar.Location = new Point(765, 132);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(101, 56);
             btnBorrar.TabIndex = 3;
@@ -78,11 +81,22 @@
             btnBorrar.UseVisualStyleBackColor = true;
             btnBorrar.Click += btnBorrar_Click;
             // 
+            // btnCrear
+            // 
+            btnCrear.Location = new Point(765, 79);
+            btnCrear.Name = "btnCrear";
+            btnCrear.Size = new Size(101, 37);
+            btnCrear.TabIndex = 4;
+            btnCrear.Text = "Crear Asistencia";
+            btnCrear.UseVisualStyleBackColor = true;
+            btnCrear.Click += btnCrear_Click;
+            // 
             // ElegirAsistenciaForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(878, 346);
+            Controls.Add(btnCrear);
             Controls.Add(btnBorrar);
             Controls.Add(btnVer);
             Controls.Add(dataAsistencia);
@@ -101,5 +115,6 @@
         private DataGridView dataAsistencia;
         private Button btnVer;
         private Button btnBorrar;
+        private Button btnCrear;
     }
 }

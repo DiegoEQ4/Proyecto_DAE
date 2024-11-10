@@ -30,6 +30,11 @@ namespace Proyecto_DAE.Vistas
         private void MateriaForms_Load(object sender, EventArgs e)
         {
             CargarTabla();
+            if (SessionDatos.Tipo > 1)
+            {
+                btnBorrar.Enabled = false;
+            }
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

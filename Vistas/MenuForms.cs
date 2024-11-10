@@ -36,6 +36,7 @@ namespace Proyecto_DAE.Vistas
 
                 lblUser.Text = user.NombreUsuario.ToString();
                 SessionDatos.UserName = user.NombreUsuario.ToString();
+                SessionDatos.Tipo = user.Tipo;
             }
 
 
@@ -46,12 +47,15 @@ namespace Proyecto_DAE.Vistas
         {
             //OCULTA OPCIONES PARA USUARIO NORMAL
             this.WindowState = FormWindowState.Maximized;
-            if (idUser > 1)
-            {
-                gestionDeProfesorToolStripMenuItem.Visible = false;
-            }
 
             GetUser();
+
+            if (SessionDatos.Tipo != 1)
+            {
+                gestionDeProfesorToolStripMenuItem.Visible = false;
+                gestionUToolStripMenuItem.Visible = false;
+
+            }
 
             //CENTRA LA IMAGEN
             pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width) / 2;
@@ -132,6 +136,20 @@ namespace Proyecto_DAE.Vistas
         {
             ElegirAsistenciaForms elegirAsistencia = new ElegirAsistenciaForms();
             elegirAsistencia.Show();
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            this.Close();
+            login.Show();
+
+        }
+
+        private void gestionUToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UsuarioForms usarioForms = new UsuarioForms();
+            usarioForms.Show();
         }
     }
 }
