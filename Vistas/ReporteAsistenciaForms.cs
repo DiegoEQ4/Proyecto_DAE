@@ -33,11 +33,11 @@ namespace Proyecto_DAE.Vistas
             // Crear una instancia del contexto de EF Core
             using (var query = new RegistroAsistenciaContext())
             {
-                // Usar SaveFileDialog para que el usuario seleccione la ruta donde se guardará el archivo PDF
+                
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf";
-                saveFileDialog.Title = "Guardar Reporte de Empleados";
-                saveFileDialog.FileName = "ReporteEmpleados.pdf";// MODIFICAR AQUÍ
+                saveFileDialog.Title = "Guardar Reporte de Asistencias";
+                saveFileDialog.FileName = "ReporteAsistencia.pdf";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {

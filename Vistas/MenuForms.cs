@@ -153,5 +153,11 @@ namespace Proyecto_DAE.Vistas
             ReporteAsistenciaForms reporteAsistenciaForms = new ReporteAsistenciaForms();
             reporteAsistenciaForms.Show();
         }
+
+        private void reporteDeEstudiantesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportesEstudiantes reportesEstudiantes = new ReportesEstudiantes();    
+            reportesEstudiantes.Show();
+        }
     }
 }

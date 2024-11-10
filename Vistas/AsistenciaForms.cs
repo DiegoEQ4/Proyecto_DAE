@@ -55,7 +55,9 @@ namespace Proyecto_DAE.Vistas
                                    Detalle = d.Detalle,
 
                                }
-                                ).ToList();
+                                )
+                                .OrderBy(e => e.Apellido)
+                                .ToList();
                 dataGridView1.DataSource = detalle;
 
             }
