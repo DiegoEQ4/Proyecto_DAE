@@ -51,6 +51,8 @@
             // btnReporte
             // 
             btnReporte.BackColor = Color.YellowGreen;
+            btnReporte.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReporte.ForeColor = Color.White;
             btnReporte.Location = new Point(543, 196);
             btnReporte.Name = "btnReporte";
             btnReporte.Size = new Size(155, 56);
@@ -64,7 +66,8 @@
             // 
             btnFecha.BackColor = Color.DarkOrange;
             btnFecha.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnFecha.Location = new Point(28, 59);
+            btnFecha.ForeColor = Color.White;
+            btnFecha.Location = new Point(28, 71);
             btnFecha.Name = "btnFecha";
             btnFecha.Size = new Size(133, 48);
             btnFecha.TabIndex = 6;
@@ -76,7 +79,8 @@
             // 
             btnGrado.BackColor = Color.DarkOrange;
             btnGrado.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            btnGrado.Location = new Point(28, 140);
+            btnGrado.ForeColor = Color.White;
+            btnGrado.Location = new Point(28, 144);
             btnGrado.Name = "btnGrado";
             btnGrado.Size = new Size(133, 49);
             btnGrado.TabIndex = 7;
@@ -88,7 +92,8 @@
             // 
             btnClase.BackColor = Color.DarkOrange;
             btnClase.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            btnClase.Location = new Point(28, 212);
+            btnClase.ForeColor = Color.White;
+            btnClase.Location = new Point(28, 216);
             btnClase.Name = "btnClase";
             btnClase.Size = new Size(133, 45);
             btnClase.TabIndex = 8;
