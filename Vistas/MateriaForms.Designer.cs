@@ -55,6 +55,7 @@
             // 
             btnBorrar.BackColor = Color.IndianRed;
             btnBorrar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnBorrar.ForeColor = Color.White;
             btnBorrar.Location = new Point(244, 253);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(77, 32);
@@ -67,6 +68,7 @@
             // 
             btnModificar.BackColor = Color.SteelBlue;
             btnModificar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnModificar.ForeColor = Color.White;
             btnModificar.Location = new Point(139, 253);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(77, 32);
@@ -79,6 +81,7 @@
             // 
             btnAgregar.BackColor = Color.YellowGreen;
             btnAgregar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnAgregar.ForeColor = Color.White;
             btnAgregar.Location = new Point(39, 253);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(77, 32);
