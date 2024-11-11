@@ -48,7 +48,8 @@
             // button1
             // 
             button1.BackColor = Color.OliveDrab;
-            button1.Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
             button1.Location = new Point(124, 331);
             button1.Name = "button1";
             button1.Size = new Size(130, 46);
@@ -76,6 +77,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(188, 272);
             label1.Name = "label1";
             label1.Size = new Size(81, 14);
@@ -86,6 +88,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(213, 220);
             label2.Name = "label2";
             label2.Size = new Size(56, 14);
@@ -115,7 +118,8 @@
             // btnCerrar
             // 
             btnCerrar.BackColor = Color.Firebrick;
-            btnCerrar.Font = new Font("Tahoma", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCerrar.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCerrar.ForeColor = Color.White;
             btnCerrar.Location = new Point(385, 331);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(130, 46);

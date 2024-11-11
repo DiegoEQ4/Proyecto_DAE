@@ -37,7 +37,11 @@
             button2 = new Button();
             label3 = new Label();
             pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -114,12 +118,32 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(219, 47);
+            pictureBox1.Location = new Point(219, 45);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(86, 62);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(432, -25);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(127, 331);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 8;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(-18, 1);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(112, 305);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 9;
+            pictureBox3.TabStop = false;
             // 
             // UserForm
             // 
@@ -127,6 +151,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(531, 306);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(button2);
@@ -142,6 +168,8 @@
             Text = "Usuario";
             Load += UserForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -156,5 +184,7 @@
         private Button button2;
         private Label label3;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
     }
 }

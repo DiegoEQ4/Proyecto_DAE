@@ -49,7 +49,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(53, 28);
+            dataGridView1.Location = new Point(53, 55);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -63,7 +63,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(487, 65);
+            label1.Location = new Point(487, 92);
             label1.Name = "label1";
             label1.Size = new Size(21, 14);
             label1.TabIndex = 1;
@@ -72,7 +72,7 @@
             // txtID
             // 
             txtID.Enabled = false;
-            txtID.Location = new Point(522, 57);
+            txtID.Location = new Point(522, 84);
             txtID.Name = "txtID";
             txtID.Size = new Size(49, 23);
             txtID.TabIndex = 2;
@@ -81,7 +81,7 @@
             // 
             cmbTipo.FormattingEnabled = true;
             cmbTipo.Items.AddRange(new object[] { "1", "2" });
-            cmbTipo.Location = new Point(522, 185);
+            cmbTipo.Location = new Point(522, 212);
             cmbTipo.Name = "cmbTipo";
             cmbTipo.Size = new Size(100, 23);
             cmbTipo.TabIndex = 3;
@@ -91,7 +91,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(411, 104);
+            label2.Location = new Point(411, 131);
             label2.Name = "label2";
             label2.Size = new Size(103, 14);
             label2.TabIndex = 4;
@@ -103,7 +103,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(438, 145);
+            label3.Location = new Point(438, 172);
             label3.Name = "label3";
             label3.Size = new Size(77, 14);
             label3.TabIndex = 5;
@@ -114,7 +114,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(475, 193);
+            label4.Location = new Point(475, 220);
             label4.Name = "label4";
             label4.Size = new Size(33, 14);
             label4.TabIndex = 6;
@@ -122,14 +122,14 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(522, 101);
+            txtNombre.Location = new Point(522, 128);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(100, 23);
             txtNombre.TabIndex = 7;
             // 
             // txtContrasena
             // 
-            txtContrasena.Location = new Point(522, 145);
+            txtContrasena.Location = new Point(522, 172);
             txtContrasena.Name = "txtContrasena";
             txtContrasena.Size = new Size(100, 23);
             txtContrasena.TabIndex = 8;
@@ -138,7 +138,8 @@
             // 
             btnAgregar.BackColor = Color.YellowGreen;
             btnAgregar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            btnAgregar.Location = new Point(654, 50);
+            btnAgregar.ForeColor = Color.White;
+            btnAgregar.Location = new Point(654, 77);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(94, 45);
             btnAgregar.TabIndex = 9;
@@ -150,7 +151,8 @@
             // 
             btnModificar.BackColor = Color.SteelBlue;
             btnModificar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            btnModificar.Location = new Point(654, 115);
+            btnModificar.ForeColor = Color.White;
+            btnModificar.Location = new Point(654, 142);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(94, 45);
             btnModificar.TabIndex = 10;
@@ -162,7 +164,8 @@
             // 
             btnBorrar.BackColor = Color.IndianRed;
             btnBorrar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            btnBorrar.Location = new Point(654, 173);
+            btnBorrar.ForeColor = Color.White;
+            btnBorrar.Location = new Point(654, 200);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(94, 45);
             btnBorrar.TabIndex = 11;
@@ -173,9 +176,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(411, 3);
+            pictureBox1.Location = new Point(343, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(50, 36);
+            pictureBox1.Size = new Size(89, 56);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;

@@ -35,6 +35,8 @@
             btnBorrar = new Button();
             btnCrear = new Button();
             pictureBox1 = new PictureBox();
+            label1 = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGrados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataAsistencia).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -68,6 +70,7 @@
             // 
             btnVer.BackColor = Color.Goldenrod;
             btnVer.Font = new Font("Tahoma", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVer.ForeColor = Color.White;
             btnVer.Location = new Point(765, 106);
             btnVer.Name = "btnVer";
             btnVer.Size = new Size(101, 37);
@@ -80,6 +83,7 @@
             // 
             btnBorrar.BackColor = Color.IndianRed;
             btnBorrar.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            btnBorrar.ForeColor = Color.White;
             btnBorrar.Location = new Point(765, 205);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(101, 50);
@@ -92,6 +96,7 @@
             // 
             btnCrear.BackColor = Color.YellowGreen;
             btnCrear.Font = new Font("Tahoma", 8.25F, FontStyle.Bold);
+            btnCrear.ForeColor = Color.White;
             btnCrear.Location = new Point(765, 149);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(101, 50);
@@ -110,12 +115,36 @@
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Stencil", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(146, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(114, 19);
+            label1.TabIndex = 6;
+            label1.Text = "TABLA GRADO";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Stencil", 12F);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(511, 11);
+            label2.Name = "label2";
+            label2.Size = new Size(152, 19);
+            label2.TabIndex = 7;
+            label2.Text = "TABLA ASISTENCIA";
+            // 
             // ElegirAsistenciaForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(878, 346);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(btnCrear);
             Controls.Add(btnBorrar);
@@ -129,6 +158,7 @@
             ((System.ComponentModel.ISupportInitialize)dataAsistencia).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -139,5 +169,7 @@
         private Button btnBorrar;
         private Button btnCrear;
         private PictureBox pictureBox1;
+        private Label label1;
+        private Label label2;
     }
 }
