@@ -42,6 +42,9 @@
             btnModificar = new Button();
             btnBorrar = new Button();
             pictureBox1 = new PictureBox();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGrados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataDetalleMateria).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataMateria).BeginInit();
@@ -112,7 +115,7 @@
             // dataDetalleMateria
             // 
             dataDetalleMateria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataDetalleMateria.Location = new Point(94, 189);
+            dataDetalleMateria.Location = new Point(94, 194);
             dataDetalleMateria.MultiSelect = false;
             dataDetalleMateria.Name = "dataDetalleMateria";
             dataDetalleMateria.ReadOnly = true;
@@ -146,7 +149,8 @@
             // 
             btnAgregar.BackColor = Color.YellowGreen;
             btnAgregar.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAgregar.Location = new Point(796, 189);
+            btnAgregar.ForeColor = Color.White;
+            btnAgregar.Location = new Point(812, 189);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(138, 42);
             btnAgregar.TabIndex = 11;
@@ -156,9 +160,10 @@
             // 
             // btnModificar
             // 
-            btnModificar.BackColor = Color.Gold;
+            btnModificar.BackColor = Color.Goldenrod;
             btnModificar.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnModificar.Location = new Point(796, 237);
+            btnModificar.ForeColor = Color.White;
+            btnModificar.Location = new Point(812, 237);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(138, 42);
             btnModificar.TabIndex = 12;
@@ -170,7 +175,8 @@
             // 
             btnBorrar.BackColor = Color.IndianRed;
             btnBorrar.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBorrar.Location = new Point(796, 286);
+            btnBorrar.ForeColor = Color.White;
+            btnBorrar.Location = new Point(812, 286);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(138, 42);
             btnBorrar.TabIndex = 13;
@@ -188,12 +194,49 @@
             pictureBox1.TabIndex = 14;
             pictureBox1.TabStop = false;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Stencil", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(203, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(91, 16);
+            label4.TabIndex = 15;
+            label4.Text = "TABLA GRADO";
+            label4.Click += label4_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Stencil", 9.75F);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(587, 8);
+            label5.Name = "label5";
+            label5.Size = new Size(106, 16);
+            label5.TabIndex = 16;
+            label5.Text = "TABLA MATERIA";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Stencil", 9.75F);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(365, 174);
+            label6.Name = "label6";
+            label6.Size = new Size(120, 16);
+            label6.TabIndex = 17;
+            label6.Text = "Detalle Materia";
+            // 
             // AsignarForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(1001, 364);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
             Controls.Add(pictureBox1);
             Controls.Add(btnBorrar);
             Controls.Add(btnModificar);
@@ -233,5 +276,8 @@
         private Button btnModificar;
         private Button btnBorrar;
         private PictureBox pictureBox1;
+        private Label label4;
+        private Label label5;
+        private Label label6;
     }
 }

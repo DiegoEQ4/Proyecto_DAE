@@ -38,7 +38,7 @@ namespace Proyecto_DAE.Vistas
 
         private void dataGrados_SelectionChanged(object sender, EventArgs e)
         {
-            
+
             if (dataGrados.SelectedRows.Count > 0)
             {
                 DataGridViewRow selected = dataGrados.SelectedRows[0];
@@ -219,11 +219,11 @@ namespace Proyecto_DAE.Vistas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
+
             gestionAsignar.InsertMateria(GetMateriaGrado());
             CargarDetalleMateria(idGrado);
-               
-            
+
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -234,7 +234,8 @@ namespace Proyecto_DAE.Vistas
                 gestionAsignar.UpdateMateria(idDetalle, GetMateriaGrado());
                 CargarDetalleMateria(idGrado);
             }
-            else {
+            else
+            {
 
                 MessageBox.Show("SELECCIONE UNA MATERIA ASIGNADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -255,6 +256,11 @@ namespace Proyecto_DAE.Vistas
         }
 
         private void dataDetalleMateria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
