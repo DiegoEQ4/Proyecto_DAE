@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MateriaForms));
             btnBorrar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
@@ -43,46 +44,56 @@
             txtNombreMateria = new TextBox();
             label1 = new Label();
             txtIdMateria = new TextBox();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtDuracion).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnBorrar
             // 
+            btnBorrar.BackColor = Color.IndianRed;
+            btnBorrar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnBorrar.Location = new Point(244, 253);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(77, 32);
             btnBorrar.TabIndex = 22;
             btnBorrar.Text = "Borrar";
-            btnBorrar.UseVisualStyleBackColor = true;
+            btnBorrar.UseVisualStyleBackColor = false;
             btnBorrar.Click += btnBorrar_Click;
             // 
             // btnModificar
             // 
+            btnModificar.BackColor = Color.SteelBlue;
+            btnModificar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnModificar.Location = new Point(139, 253);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(77, 32);
             btnModificar.TabIndex = 21;
             btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.UseVisualStyleBackColor = false;
             btnModificar.Click += btnModificar_Click;
             // 
             // btnAgregar
             // 
+            btnAgregar.BackColor = Color.YellowGreen;
+            btnAgregar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnAgregar.Location = new Point(39, 253);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(77, 32);
             btnAgregar.TabIndex = 20;
             btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.UseVisualStyleBackColor = false;
             btnAgregar.Click += btnAgregar_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(277, 11);
+            label5.ForeColor = Color.SandyBrown;
+            label5.Location = new Point(307, 9);
             label5.Name = "label5";
             label5.Size = new Size(188, 25);
             label5.TabIndex = 18;
@@ -123,9 +134,11 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            label6.ForeColor = Color.White;
             label6.Location = new Point(262, 53);
             label6.Name = "label6";
-            label6.Size = new Size(29, 15);
+            label6.Size = new Size(32, 14);
             label6.TabIndex = 9;
             label6.Text = "Dias";
             // 
@@ -141,9 +154,11 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            label4.ForeColor = Color.White;
             label4.Location = new Point(7, 96);
             label4.Name = "label4";
-            label4.Size = new Size(69, 15);
+            label4.Size = new Size(76, 14);
             label4.TabIndex = 7;
             label4.Text = "Descripcion";
             // 
@@ -160,18 +175,22 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            label3.ForeColor = Color.White;
             label3.Location = new Point(174, 26);
             label3.Name = "label3";
-            label3.Size = new Size(55, 15);
+            label3.Size = new Size(61, 14);
             label3.TabIndex = 5;
             label3.Text = "Duracion";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(25, 59);
             label2.Name = "label2";
-            label2.Size = new Size(51, 15);
+            label2.Size = new Size(54, 14);
             label2.TabIndex = 3;
             label2.Text = "Nombre";
             // 
@@ -186,9 +205,11 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(58, 27);
             label1.Name = "label1";
-            label1.Size = new Size(18, 15);
+            label1.Size = new Size(21, 14);
             label1.TabIndex = 1;
             label1.Text = "ID";
             // 
@@ -200,11 +221,23 @@
             txtIdMateria.Size = new Size(53, 23);
             txtIdMateria.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(3, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(71, 46);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 23;
+            pictureBox1.TabStop = false;
+            // 
             // MateriaForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(819, 316);
+            Controls.Add(pictureBox1);
             Controls.Add(btnBorrar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
@@ -218,6 +251,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)txtDuracion).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -238,5 +272,6 @@
         private TextBox txtDescripcion;
         private TextBox txtNombreMateria;
         private Label label6;
+        private PictureBox pictureBox1;
     }
 }

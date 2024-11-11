@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuarioForms));
             dataGridView1 = new DataGridView();
             label1 = new Label();
             txtID = new TextBox();
@@ -40,7 +41,9 @@
             btnAgregar = new Button();
             btnModificar = new Button();
             btnBorrar = new Button();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -58,9 +61,11 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(487, 65);
             label1.Name = "label1";
-            label1.Size = new Size(18, 15);
+            label1.Size = new Size(21, 14);
             label1.TabIndex = 1;
             label1.Text = "ID";
             // 
@@ -84,27 +89,34 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(411, 104);
             label2.Name = "label2";
-            label2.Size = new Size(94, 15);
+            label2.Size = new Size(103, 14);
             label2.TabIndex = 4;
             label2.Text = "Nombre Usuario";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
             label3.Location = new Point(438, 145);
             label3.Name = "label3";
-            label3.Size = new Size(67, 15);
+            label3.Size = new Size(77, 14);
             label3.TabIndex = 5;
             label3.Text = "Contrasena";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            label4.ForeColor = Color.White;
             label4.Location = new Point(475, 193);
             label4.Name = "label4";
-            label4.Size = new Size(30, 15);
+            label4.Size = new Size(33, 14);
             label4.TabIndex = 6;
             label4.Text = "Tipo";
             // 
@@ -124,39 +136,57 @@
             // 
             // btnAgregar
             // 
+            btnAgregar.BackColor = Color.YellowGreen;
+            btnAgregar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnAgregar.Location = new Point(654, 50);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(94, 45);
             btnAgregar.TabIndex = 9;
             btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.UseVisualStyleBackColor = false;
             btnAgregar.Click += button1_Click;
             // 
             // btnModificar
             // 
+            btnModificar.BackColor = Color.SteelBlue;
+            btnModificar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnModificar.Location = new Point(654, 115);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(94, 45);
             btnModificar.TabIndex = 10;
             btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.UseVisualStyleBackColor = false;
             btnModificar.Click += btnModificar_Click;
             // 
             // btnBorrar
             // 
+            btnBorrar.BackColor = Color.IndianRed;
+            btnBorrar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnBorrar.Location = new Point(654, 173);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(94, 45);
             btnBorrar.TabIndex = 11;
             btnBorrar.Text = "Borrar";
-            btnBorrar.UseVisualStyleBackColor = true;
+            btnBorrar.UseVisualStyleBackColor = false;
             btnBorrar.Click += btnBorrar_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(411, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(50, 36);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
             // 
             // UsuarioForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(760, 299);
+            Controls.Add(pictureBox1);
             Controls.Add(btnBorrar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
@@ -173,6 +203,7 @@
             Text = "UsuarioForms";
             Load += UsuarioForms_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -191,5 +222,6 @@
         private Button btnAgregar;
         private Button btnModificar;
         private Button btnBorrar;
+        private PictureBox pictureBox1;
     }
 }

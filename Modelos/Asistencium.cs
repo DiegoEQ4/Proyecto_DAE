@@ -9,9 +9,9 @@ public partial class Asistencium
 
     public DateTime FechaHora { get; set; }
 
-    public int? ClaseAsistencia { get; set; }
+    public DateTime FechaHoraFinal { get; set; }
 
-    public DateTime? FechaHoraFinal { get; set; }
+    public int? ClaseAsistencia { get; set; }
 
     public virtual Clase? ClaseAsistenciaNavigation { get; set; }
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             label1 = new Label();
             txtUser = new TextBox();
             txtPassword = new TextBox();
@@ -35,81 +36,95 @@
             btnCrear = new Button();
             button2 = new Button();
             label3 = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(186, 165);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(131, 117);
             label1.Name = "label1";
-            label1.Size = new Size(141, 25);
+            label1.Size = new Size(103, 14);
             label1.TabIndex = 0;
             label1.Text = "Nombre usuario";
             // 
             // txtUser
             // 
-            txtUser.Location = new Point(326, 165);
-            txtUser.Margin = new Padding(4, 5, 4, 5);
+            txtUser.Location = new Point(235, 116);
             txtUser.Name = "txtUser";
-            txtUser.Size = new Size(174, 31);
+            txtUser.Size = new Size(123, 23);
             txtUser.TabIndex = 1;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(326, 252);
-            txtPassword.Margin = new Padding(4, 5, 4, 5);
+            txtPassword.Location = new Point(235, 168);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(174, 31);
+            txtPassword.Size = new Size(123, 23);
             txtPassword.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(211, 257);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(155, 171);
             label2.Name = "label2";
-            label2.Size = new Size(101, 25);
+            label2.Size = new Size(77, 14);
             label2.TabIndex = 2;
             label2.Text = "Contraseña";
             // 
             // btnCrear
             // 
-            btnCrear.Location = new Point(211, 385);
-            btnCrear.Margin = new Padding(4, 5, 4, 5);
+            btnCrear.BackColor = Color.YellowGreen;
+            btnCrear.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnCrear.Location = new Point(148, 231);
             btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(123, 67);
+            btnCrear.Size = new Size(86, 40);
             btnCrear.TabIndex = 4;
             btnCrear.Text = "Crear";
-            btnCrear.UseVisualStyleBackColor = true;
+            btnCrear.UseVisualStyleBackColor = false;
             btnCrear.Click += btnCrear_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(417, 385);
-            button2.Margin = new Padding(4, 5, 4, 5);
+            button2.BackColor = Color.IndianRed;
+            button2.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            button2.Location = new Point(292, 231);
             button2.Name = "button2";
-            button2.Size = new Size(133, 67);
+            button2.Size = new Size(93, 40);
             button2.TabIndex = 5;
             button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(339, 43);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Font = new Font("Tahoma", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(184, 13);
             label3.Name = "label3";
-            label3.Size = new Size(118, 25);
+            label3.Size = new Size(156, 25);
             label3.TabIndex = 6;
             label3.Text = "Crear Usuario";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(219, 47);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(86, 62);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
+            // 
             // UserForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(759, 510);
+            BackColor = Color.FromArgb(0, 192, 192);
+            ClientSize = new Size(531, 306);
+            Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(button2);
             Controls.Add(btnCrear);
@@ -118,12 +133,12 @@
             Controls.Add(txtUser);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "UserForm";
             Text = "Usuario";
             Load += UserForm_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -137,5 +152,6 @@
         private Button btnCrear;
         private Button button2;
         private Label label3;
+        private PictureBox pictureBox1;
     }
 }

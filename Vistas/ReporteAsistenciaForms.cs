@@ -33,7 +33,7 @@ namespace Proyecto_DAE.Vistas
             // Crear una instancia del contexto de EF Core
             using (var query = new RegistroAsistenciaContext())
             {
-                
+
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf";
                 saveFileDialog.Title = "Guardar Reporte de Asistencias";
@@ -72,7 +72,7 @@ namespace Proyecto_DAE.Vistas
                     {
 
                         case 1:
-                            reporte.FiltradoUno(rutaArchivo,idGradoF, dateInicio.Value, dateFinal.Value);
+                            reporte.FiltradoUno(rutaArchivo, idGradoF, dateInicio.Value, dateFinal.Value);
                             break;
                         case 2:
                             reporte.FiltradoDos(rutaArchivo, idGrado);
@@ -145,7 +145,7 @@ namespace Proyecto_DAE.Vistas
 
         private void btnFecha_Click(object sender, EventArgs e)
         {
-            
+
             filtrado = 1;
             //HACER VISIBLE CONTROLES
             btnReporte.Visible = true;
@@ -204,6 +204,9 @@ namespace Proyecto_DAE.Vistas
             cmbGrado.Visible = false;
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

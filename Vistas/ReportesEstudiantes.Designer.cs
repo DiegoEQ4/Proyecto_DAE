@@ -28,17 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportesEstudiantes));
             dataGrados = new DataGridView();
             dataEstudiantes = new DataGridView();
             btnCrearReporte = new Button();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGrados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataEstudiantes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // dataGrados
             // 
             dataGrados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGrados.Location = new Point(33, 26);
+            dataGrados.Location = new Point(51, 117);
             dataGrados.MultiSelect = false;
             dataGrados.Name = "dataGrados";
             dataGrados.ReadOnly = true;
@@ -50,7 +54,7 @@
             // dataEstudiantes
             // 
             dataEstudiantes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataEstudiantes.Location = new Point(348, 26);
+            dataEstudiantes.Location = new Point(371, 117);
             dataEstudiantes.MultiSelect = false;
             dataEstudiantes.Name = "dataEstudiantes";
             dataEstudiantes.ReadOnly = true;
@@ -61,19 +65,45 @@
             // 
             // btnCrearReporte
             // 
-            btnCrearReporte.Location = new Point(244, 356);
+            btnCrearReporte.BackColor = Color.YellowGreen;
+            btnCrearReporte.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCrearReporte.Location = new Point(274, 419);
             btnCrearReporte.Name = "btnCrearReporte";
             btnCrearReporte.Size = new Size(168, 50);
             btnCrearReporte.TabIndex = 2;
             btnCrearReporte.Text = "Crear Reporte";
-            btnCrearReporte.UseVisualStyleBackColor = true;
+            btnCrearReporte.UseVisualStyleBackColor = false;
             btnCrearReporte.Click += btnCrearReporte_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(94, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(124, 81);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Tahoma", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(224, 46);
+            label1.Name = "label1";
+            label1.Size = new Size(264, 25);
+            label1.TabIndex = 4;
+            label1.Text = "CREACIÓN DE REPORTE";
             // 
             // ReportesEstudiantes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(666, 450);
+            BackColor = Color.FromArgb(0, 64, 64);
+            ClientSize = new Size(701, 481);
+            Controls.Add(label1);
+            Controls.Add(pictureBox1);
             Controls.Add(btnCrearReporte);
             Controls.Add(dataEstudiantes);
             Controls.Add(dataGrados);
@@ -82,7 +112,9 @@
             Load += ReportesEstudiantes_Load;
             ((System.ComponentModel.ISupportInitialize)dataGrados).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataEstudiantes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -90,5 +122,7 @@
         private DataGridView dataGrados;
         private DataGridView dataEstudiantes;
         private Button btnCrearReporte;
+        private PictureBox pictureBox1;
+        private Label label1;
     }
 }

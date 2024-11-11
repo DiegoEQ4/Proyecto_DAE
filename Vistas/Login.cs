@@ -40,5 +40,10 @@ namespace Proyecto_DAE
                 Application.Exit(); // Asegura que toda la aplicación finaliza
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

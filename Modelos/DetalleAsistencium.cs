@@ -11,7 +11,7 @@ public partial class DetalleAsistencium
 
     public int? Estudiante { get; set; }
 
-    public string? Estado { get; set; }
+    public string Estado { get; set; } = null!;
 
     public string? Detalle { get; set; }
 

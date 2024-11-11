@@ -41,7 +41,7 @@ public partial class RegistroAsistenciaContext : DbContext
     {
         modelBuilder.Entity<Asistencium>(entity =>
         {
-            entity.HasKey(e => e.IdAsistencia).HasName("PK__Asistenc__20240AC43F037DC1");
+            entity.HasKey(e => e.IdAsistencia).HasName("PK__Asistenc__20240AC42CFBB0B4");
 
             entity.Property(e => e.IdAsistencia).HasColumnName("Id_Asistencia");
             entity.Property(e => e.ClaseAsistencia).HasColumnName("Clase_Asistencia");
@@ -59,7 +59,7 @@ public partial class RegistroAsistenciaContext : DbContext
 
         modelBuilder.Entity<Clase>(entity =>
         {
-            entity.HasKey(e => e.IdClase).HasName("PK__Clase__E30692F0EF7703F4");
+            entity.HasKey(e => e.IdClase).HasName("PK__Clase__E30692F08CCE6B16");
 
             entity.ToTable("Clase");
 
@@ -80,7 +80,7 @@ public partial class RegistroAsistenciaContext : DbContext
 
         modelBuilder.Entity<DetalleAsistencium>(entity =>
         {
-            entity.HasKey(e => e.IdDetalleAsistencia).HasName("PK__Detalle___86017D193BA8B191");
+            entity.HasKey(e => e.IdDetalleAsistencia).HasName("PK__Detalle___86017D19B743EC33");
 
             entity.ToTable("Detalle_Asistencia");
 
@@ -104,7 +104,7 @@ public partial class RegistroAsistenciaContext : DbContext
 
         modelBuilder.Entity<Estudiante>(entity =>
         {
-            entity.HasKey(e => e.CarnetEstudiantes).HasName("PK__Estudian__2762B9AA045305F3");
+            entity.HasKey(e => e.CarnetEstudiantes).HasName("PK__Estudian__2762B9AAD2FF0010");
 
             entity.Property(e => e.CarnetEstudiantes)
                 .ValueGeneratedNever()
@@ -128,7 +128,7 @@ public partial class RegistroAsistenciaContext : DbContext
 
         modelBuilder.Entity<Grado>(entity =>
         {
-            entity.HasKey(e => e.IdGrado).HasName("PK__Grado__ADBED3523C23CAF3");
+            entity.HasKey(e => e.IdGrado).HasName("PK__Grado__ADBED352FA1730FB");
 
             entity.ToTable("Grado");
 
@@ -144,7 +144,7 @@ public partial class RegistroAsistenciaContext : DbContext
 
         modelBuilder.Entity<Materia>(entity =>
         {
-            entity.HasKey(e => e.IdMateria).HasName("PK__Materias__D3FE91FAF407BA50");
+            entity.HasKey(e => e.IdMateria).HasName("PK__Materias__D3FE91FA7B6FF443");
 
             entity.Property(e => e.IdMateria).HasColumnName("Id_Materia");
             entity.Property(e => e.Descripcion)
@@ -159,7 +159,7 @@ public partial class RegistroAsistenciaContext : DbContext
 
         modelBuilder.Entity<MateriaGrado>(entity =>
         {
-            entity.HasKey(e => e.IdMateriaGrado).HasName("PK__Materia___79A8F70991F4520A");
+            entity.HasKey(e => e.IdMateriaGrado).HasName("PK__Materia___79A8F709CAAAB7B4");
 
             entity.ToTable("Materia_Grado");
 
@@ -183,7 +183,7 @@ public partial class RegistroAsistenciaContext : DbContext
 
         modelBuilder.Entity<Profesor>(entity =>
         {
-            entity.HasKey(e => e.CarnetProfesor).HasName("PK__Profesor__4D10BAD59DCCE838");
+            entity.HasKey(e => e.CarnetProfesor).HasName("PK__Profesor__4D10BAD5D92D568B");
 
             entity.ToTable("Profesor");
 
@@ -208,13 +208,12 @@ public partial class RegistroAsistenciaContext : DbContext
 
             entity.HasOne(d => d.UsuarioNavigation).WithMany(p => p.Profesors)
                 .HasForeignKey(d => d.Usuario)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK__Profesor__Usuario");
+                .HasConstraintName("FK__Profesor__Usuari__403A8C7D");
         });
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__63C76BE2D331F8BE");
+            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuario__63C76BE21E623533");
 
             entity.ToTable("Usuario");
 

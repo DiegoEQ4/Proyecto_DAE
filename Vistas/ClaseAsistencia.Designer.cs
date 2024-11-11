@@ -71,18 +71,20 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(230, 53);
             label2.Name = "label2";
-            label2.Size = new Size(78, 15);
+            label2.Size = new Size(87, 14);
             label2.TabIndex = 3;
             label2.Text = "HORA INICIO";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(448, 53);
             label3.Name = "label3";
-            label3.Size = new Size(61, 15);
+            label3.Size = new Size(66, 14);
             label3.TabIndex = 4;
             label3.Text = "HORA FIN";
             // 
@@ -97,37 +99,43 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(123, 124);
             label4.Name = "label4";
-            label4.Size = new Size(47, 15);
+            label4.Size = new Size(51, 14);
             label4.TabIndex = 6;
             label4.Text = "GRADO";
             // 
             // btnConfirmar
             // 
+            btnConfirmar.BackColor = Color.Lime;
+            btnConfirmar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConfirmar.Location = new Point(306, 197);
             btnConfirmar.Name = "btnConfirmar";
             btnConfirmar.Size = new Size(93, 35);
             btnConfirmar.TabIndex = 7;
             btnConfirmar.Text = "Confirmar";
-            btnConfirmar.UseVisualStyleBackColor = true;
+            btnConfirmar.UseVisualStyleBackColor = false;
             btnConfirmar.Click += btnConfirmar_Click;
             // 
             // btnCancelar
             // 
+            btnCancelar.BackColor = Color.Red;
+            btnCancelar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancelar.Location = new Point(416, 197);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(93, 35);
             btnCancelar.TabIndex = 8;
             btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(123, 9);
+            label5.ForeColor = Color.Yellow;
+            label5.Location = new Point(105, 9);
             label5.Name = "label5";
             label5.Size = new Size(304, 20);
             label5.TabIndex = 9;
@@ -144,9 +152,10 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(324, 124);
             label6.Name = "label6";
-            label6.Size = new Size(74, 15);
+            label6.Size = new Size(77, 14);
             label6.TabIndex = 11;
             label6.Text = "CONTENIDO";
             // 
@@ -154,6 +163,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SteelBlue;
             ClientSize = new Size(521, 244);
             Controls.Add(label6);
             Controls.Add(txtContenido);

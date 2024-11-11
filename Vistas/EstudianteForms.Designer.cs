@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstudianteForms));
             label1 = new Label();
             txtCarnet = new TextBox();
             txtApellido = new TextBox();
@@ -44,15 +45,19 @@
             btnEditar = new Button();
             cmbGrado = new ComboBox();
             label6 = new Label();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(46, 43);
             label1.Name = "label1";
-            label1.Size = new Size(42, 15);
+            label1.Size = new Size(48, 14);
             label1.TabIndex = 0;
             label1.Text = "Carnet";
             // 
@@ -91,36 +96,44 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(37, 86);
             label2.Name = "label2";
-            label2.Size = new Size(51, 15);
+            label2.Size = new Size(54, 14);
             label2.TabIndex = 5;
             label2.Text = "Nombre";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            label3.ForeColor = Color.White;
             label3.Location = new Point(261, 86);
             label3.Name = "label3";
-            label3.Size = new Size(51, 15);
+            label3.Size = new Size(56, 14);
             label3.TabIndex = 6;
             label3.Text = "Apellido";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            label4.ForeColor = Color.White;
             label4.Location = new Point(269, 35);
             label4.Name = "label4";
-            label4.Size = new Size(43, 15);
+            label4.Size = new Size(48, 14);
             label4.TabIndex = 7;
             label4.Text = "Correo";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            label5.ForeColor = Color.White;
             label5.Location = new Point(37, 139);
             label5.Name = "label5";
-            label5.Size = new Size(119, 15);
+            label5.Size = new Size(131, 14);
             label5.TabIndex = 8;
             label5.Text = "Fecha de Nacimiento";
             // 
@@ -144,32 +157,39 @@
             // 
             // btnAgregar
             // 
+            btnAgregar.BackColor = Color.YellowGreen;
+            btnAgregar.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAgregar.ForeColor = Color.Black;
             btnAgregar.Location = new Point(601, 194);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(111, 43);
             btnAgregar.TabIndex = 11;
             btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.UseVisualStyleBackColor = false;
             btnAgregar.Click += button1_Click;
             // 
             // btnBorrar
             // 
+            btnBorrar.BackColor = Color.IndianRed;
+            btnBorrar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnBorrar.Location = new Point(601, 292);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(111, 43);
             btnBorrar.TabIndex = 12;
             btnBorrar.Text = "Borrar";
-            btnBorrar.UseVisualStyleBackColor = true;
+            btnBorrar.UseVisualStyleBackColor = false;
             btnBorrar.Click += btnBorrar_Click;
             // 
             // btnEditar
             // 
+            btnEditar.BackColor = Color.RoyalBlue;
+            btnEditar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnEditar.Location = new Point(601, 243);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(111, 43);
             btnEditar.TabIndex = 13;
             btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += button3_Click;
             // 
             // cmbGrado
@@ -184,17 +204,31 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
             label6.Location = new Point(463, 86);
             label6.Name = "label6";
-            label6.Size = new Size(39, 15);
+            label6.Size = new Size(43, 14);
             label6.TabIndex = 15;
             label6.Text = "Grado";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(635, -3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(110, 88);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 16;
+            pictureBox1.TabStop = false;
             // 
             // EstudianteForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(742, 389);
+            Controls.Add(pictureBox1);
             Controls.Add(label6);
             Controls.Add(cmbGrado);
             Controls.Add(btnEditar);
@@ -215,6 +249,7 @@
             Text = "Gestion de estudiantes";
             Load += EstudianteForms_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -237,5 +272,6 @@
         private Button btnEditar;
         private ComboBox cmbGrado;
         private Label label6;
+        private PictureBox pictureBox1;
     }
 }

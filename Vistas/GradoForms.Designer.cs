@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GradoForms));
             groupBox1 = new GroupBox();
             txtSeccionGrado = new ComboBox();
             label7 = new Label();
@@ -44,9 +45,11 @@
             btnAgregar = new Button();
             btnModificar = new Button();
             btnBorrar = new Button();
+            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtCupos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -176,7 +179,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(314, 13);
+            label5.Location = new Point(287, 13);
             label5.Name = "label5";
             label5.Size = new Size(174, 25);
             label5.TabIndex = 8;
@@ -184,45 +187,64 @@
             // 
             // btnAgregar
             // 
+            btnAgregar.BackColor = Color.YellowGreen;
+            btnAgregar.ForeColor = Color.Black;
             btnAgregar.Location = new Point(39, 246);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(77, 32);
             btnAgregar.TabIndex = 9;
             btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.UseVisualStyleBackColor = false;
             btnAgregar.Click += btnAgregar_Click;
             // 
             // btnModificar
             // 
+            btnModificar.BackColor = Color.SteelBlue;
+            btnModificar.ForeColor = Color.Black;
             btnModificar.Location = new Point(142, 246);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(77, 32);
             btnModificar.TabIndex = 10;
             btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.UseVisualStyleBackColor = false;
             btnModificar.Click += btnModificar_Click;
             // 
             // btnBorrar
             // 
+            btnBorrar.BackColor = Color.IndianRed;
+            btnBorrar.ForeColor = Color.Black;
             btnBorrar.Location = new Point(244, 246);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(77, 32);
             btnBorrar.TabIndex = 11;
             btnBorrar.Text = "Borrar";
-            btnBorrar.UseVisualStyleBackColor = true;
+            btnBorrar.UseVisualStyleBackColor = false;
             btnBorrar.Click += btnBorrar_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(678, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 50);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
             // 
             // GradoForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(778, 321);
+            Controls.Add(pictureBox1);
             Controls.Add(btnBorrar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
             Controls.Add(label5);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
+            ForeColor = Color.White;
             Name = "GradoForms";
             Text = "Gestion de Grados";
             Load += GradoForms_Load;
@@ -230,6 +252,7 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)txtCupos).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -252,5 +275,6 @@
         private Label label7;
         private TextBox txtAnio;
         private ComboBox txtSeccionGrado;
+        private PictureBox pictureBox1;
     }
 }
