@@ -71,6 +71,7 @@
             // 
             btnCrearReporte.BackColor = Color.YellowGreen;
             btnCrearReporte.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCrearReporte.ForeColor = Color.White;
             btnCrearReporte.Location = new Point(274, 419);
             btnCrearReporte.Name = "btnCrearReporte";
             btnCrearReporte.Size = new Size(168, 50);
