@@ -44,7 +44,8 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(131, 117);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(131, 119);
             label1.Name = "label1";
             label1.Size = new Size(103, 14);
             label1.TabIndex = 0;
@@ -68,7 +69,8 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(155, 171);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(155, 172);
             label2.Name = "label2";
             label2.Size = new Size(77, 14);
             label2.TabIndex = 2;
@@ -102,6 +104,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
             label3.Location = new Point(184, 13);
             label3.Name = "label3";
             label3.Size = new Size(156, 25);
@@ -122,7 +125,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(0, 192, 192);
+            BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(531, 306);
             Controls.Add(pictureBox1);
             Controls.Add(label3);
