@@ -34,9 +34,13 @@
             btnCrearReporte = new Button();
             pictureBox1 = new PictureBox();
             label1 = new Label();
+            pictureBox4 = new PictureBox();
+            pictureBox5 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGrados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataEstudiantes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // dataGrados
@@ -96,12 +100,34 @@
             label1.TabIndex = 4;
             label1.Text = "CREACIÓN DE REPORTE";
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(554, -16);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(178, 94);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 5;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(1, -15);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(123, 93);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 6;
+            pictureBox5.TabStop = false;
+            // 
             // ReportesEstudiantes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(701, 481);
+            Controls.Add(pictureBox5);
+            Controls.Add(pictureBox4);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(btnCrearReporte);
@@ -113,6 +139,8 @@
             ((System.ComponentModel.ISupportInitialize)dataGrados).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataEstudiantes).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -124,5 +152,9 @@
         private Button btnCrearReporte;
         private PictureBox pictureBox1;
         private Label label1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox5;
     }
 }
