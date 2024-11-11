@@ -84,6 +84,7 @@
             // 
             btnCrear.BackColor = Color.YellowGreen;
             btnCrear.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnCrear.ForeColor = Color.White;
             btnCrear.Location = new Point(148, 231);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(86, 40);
@@ -96,6 +97,7 @@
             // 
             button2.BackColor = Color.IndianRed;
             button2.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            button2.ForeColor = Color.White;
             button2.Location = new Point(292, 231);
             button2.Name = "button2";
             button2.Size = new Size(93, 40);
