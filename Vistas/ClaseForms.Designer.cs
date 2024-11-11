@@ -123,6 +123,7 @@
             // 
             btnAgregar.BackColor = Color.Goldenrod;
             btnAgregar.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAgregar.ForeColor = Color.White;
             btnAgregar.Location = new Point(391, 212);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(89, 47);
@@ -135,6 +136,7 @@
             // 
             btnEditar.BackColor = Color.SteelBlue;
             btnEditar.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+            btnEditar.ForeColor = Color.White;
             btnEditar.Location = new Point(503, 212);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(89, 47);
@@ -147,6 +149,7 @@
             // 
             btnEliminar.BackColor = Color.IndianRed;
             btnEliminar.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+            btnEliminar.ForeColor = Color.White;
             btnEliminar.Location = new Point(612, 212);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(89, 47);
@@ -159,6 +162,7 @@
             // 
             button4.BackColor = Color.YellowGreen;
             button4.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+            button4.ForeColor = Color.White;
             button4.Location = new Point(441, 279);
             button4.Name = "button4";
             button4.Size = new Size(208, 47);
