@@ -64,7 +64,7 @@
             groupBox1.Controls.Add(txtNombreGrado);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtIdGrado);
-            groupBox1.Location = new Point(30, 47);
+            groupBox1.Location = new Point(30, 72);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(307, 182);
             groupBox1.TabIndex = 0;
@@ -165,7 +165,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(367, 58);
+            dataGridView1.Location = new Point(367, 83);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
@@ -178,18 +178,19 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(287, 13);
+            label5.Font = new Font("Stencil", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(292, 31);
             label5.Name = "label5";
-            label5.Size = new Size(174, 25);
+            label5.Size = new Size(193, 22);
             label5.TabIndex = 8;
             label5.Text = "Gestion de grados";
             // 
             // btnAgregar
             // 
             btnAgregar.BackColor = Color.YellowGreen;
-            btnAgregar.ForeColor = Color.Black;
-            btnAgregar.Location = new Point(39, 246);
+            btnAgregar.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAgregar.ForeColor = Color.White;
+            btnAgregar.Location = new Point(39, 271);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(77, 32);
             btnAgregar.TabIndex = 9;
@@ -200,8 +201,9 @@
             // btnModificar
             // 
             btnModificar.BackColor = Color.SteelBlue;
-            btnModificar.ForeColor = Color.Black;
-            btnModificar.Location = new Point(142, 246);
+            btnModificar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnModificar.ForeColor = Color.White;
+            btnModificar.Location = new Point(142, 271);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(77, 32);
             btnModificar.TabIndex = 10;
@@ -212,8 +214,9 @@
             // btnBorrar
             // 
             btnBorrar.BackColor = Color.IndianRed;
-            btnBorrar.ForeColor = Color.Black;
-            btnBorrar.Location = new Point(244, 246);
+            btnBorrar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnBorrar.ForeColor = Color.White;
+            btnBorrar.Location = new Point(244, 271);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(77, 32);
             btnBorrar.TabIndex = 11;
@@ -224,9 +227,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(678, 2);
+            pictureBox1.Location = new Point(678, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(100, 50);
+            pictureBox1.Size = new Size(115, 77);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
