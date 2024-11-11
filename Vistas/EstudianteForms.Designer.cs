@@ -46,6 +46,7 @@
             cmbGrado = new ComboBox();
             label6 = new Label();
             pictureBox1 = new PictureBox();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -55,7 +56,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(46, 43);
+            label1.Location = new Point(46, 59);
             label1.Name = "label1";
             label1.Size = new Size(48, 14);
             label1.TabIndex = 0;
@@ -63,7 +64,7 @@
             // 
             // txtCarnet
             // 
-            txtCarnet.Location = new Point(113, 35);
+            txtCarnet.Location = new Point(113, 51);
             txtCarnet.Name = "txtCarnet";
             txtCarnet.Size = new Size(75, 23);
             txtCarnet.TabIndex = 1;
@@ -71,7 +72,7 @@
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(318, 83);
+            txtApellido.Location = new Point(318, 99);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(100, 23);
             txtApellido.TabIndex = 2;
@@ -79,7 +80,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(113, 83);
+            txtNombre.Location = new Point(113, 99);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(100, 23);
             txtNombre.TabIndex = 3;
@@ -87,7 +88,7 @@
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(318, 32);
+            txtCorreo.Location = new Point(318, 48);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(203, 23);
             txtCorreo.TabIndex = 4;
@@ -98,7 +99,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(37, 86);
+            label2.Location = new Point(37, 102);
             label2.Name = "label2";
             label2.Size = new Size(54, 14);
             label2.TabIndex = 5;
@@ -109,7 +110,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(261, 86);
+            label3.Location = new Point(261, 102);
             label3.Name = "label3";
             label3.Size = new Size(56, 14);
             label3.TabIndex = 6;
@@ -120,7 +121,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(269, 35);
+            label4.Location = new Point(269, 51);
             label4.Name = "label4";
             label4.Size = new Size(48, 14);
             label4.TabIndex = 7;
@@ -131,7 +132,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(37, 139);
+            label5.Location = new Point(37, 155);
             label5.Name = "label5";
             label5.Size = new Size(131, 14);
             label5.TabIndex = 8;
@@ -139,7 +140,7 @@
             // 
             // dateNacimiento
             // 
-            dateNacimiento.Location = new Point(180, 133);
+            dateNacimiento.Location = new Point(180, 149);
             dateNacimiento.Name = "dateNacimiento";
             dateNacimiento.Size = new Size(220, 23);
             dateNacimiento.TabIndex = 9;
@@ -159,7 +160,7 @@
             // 
             btnAgregar.BackColor = Color.YellowGreen;
             btnAgregar.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAgregar.ForeColor = Color.Black;
+            btnAgregar.ForeColor = Color.White;
             btnAgregar.Location = new Point(601, 194);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(111, 43);
@@ -172,6 +173,7 @@
             // 
             btnBorrar.BackColor = Color.IndianRed;
             btnBorrar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnBorrar.ForeColor = Color.White;
             btnBorrar.Location = new Point(601, 292);
             btnBorrar.Name = "btnBorrar";
             btnBorrar.Size = new Size(111, 43);
@@ -184,6 +186,7 @@
             // 
             btnEditar.BackColor = Color.RoyalBlue;
             btnEditar.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnEditar.ForeColor = Color.White;
             btnEditar.Location = new Point(601, 243);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(111, 43);
@@ -195,7 +198,7 @@
             // cmbGrado
             // 
             cmbGrado.FormattingEnabled = true;
-            cmbGrado.Location = new Point(508, 83);
+            cmbGrado.Location = new Point(508, 99);
             cmbGrado.Name = "cmbGrado";
             cmbGrado.Size = new Size(121, 23);
             cmbGrado.TabIndex = 14;
@@ -206,7 +209,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(463, 86);
+            label6.Location = new Point(463, 102);
             label6.Name = "label6";
             label6.Size = new Size(43, 14);
             label6.TabIndex = 15;
@@ -222,12 +225,24 @@
             pictureBox1.TabIndex = 16;
             pictureBox1.TabStop = false;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Stencil", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.FromArgb(255, 128, 0);
+            label7.Location = new Point(255, 9);
+            label7.Name = "label7";
+            label7.Size = new Size(185, 18);
+            label7.TabIndex = 17;
+            label7.Text = "GESTIÓN DE ESTUDIANTE";
+            // 
             // EstudianteForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(742, 389);
+            Controls.Add(label7);
             Controls.Add(pictureBox1);
             Controls.Add(label6);
             Controls.Add(cmbGrado);
@@ -273,5 +288,6 @@
         private ComboBox cmbGrado;
         private Label label6;
         private PictureBox pictureBox1;
+        private Label label7;
     }
 }
