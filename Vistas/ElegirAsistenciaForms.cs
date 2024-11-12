@@ -175,7 +175,7 @@ namespace Proyecto_DAE.Vistas
             else
             {
 
-                MessageBox.Show("SELECCIONA UNA ASISTENCIA!");
+                MessageBox.Show("SELECCIONA UNA ASISTENCIA", "ADVERTEBCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
         }

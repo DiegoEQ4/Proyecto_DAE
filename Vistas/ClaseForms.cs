@@ -203,9 +203,12 @@ namespace Proyecto_DAE.Vistas
 
                                         mg.IdMateriaGrado,
                                         Nombre = m.NombreMateria + "-" + g.NombreGrado + " " + g.Seccion,
+                                        g.Seccion,
 
                                     }
-                                    ).ToList();
+                                    )
+                                    .ToList()
+                                    .OrderBy(g => g.Seccion);
 
                     cmbMateria.DataSource = materias;
                     cmbMateria.DisplayMember = "Nombre";

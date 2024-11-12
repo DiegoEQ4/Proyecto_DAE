@@ -164,6 +164,7 @@
             dataGridView1.Margin = new Padding(2);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(295, 250);
@@ -258,6 +259,7 @@
             // 
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
+            groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(28, 59);
             groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";

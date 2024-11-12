@@ -26,7 +26,6 @@ namespace Proyecto_DAE.Vistas
 
         private void ClaseAsistencia_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Clase: " + idClase);
             DateFormat();
             SetClase();
         }

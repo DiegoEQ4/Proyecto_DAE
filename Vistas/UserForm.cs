@@ -41,8 +41,9 @@ namespace Proyecto_DAE.Vistas
         {
             using (var query = new RegistroAsistenciaContext())
             {
-                if (Validaciones()) { 
-                
+                if (Validaciones())
+                {
+
                     nombreUsuario = txtUser.Text;
                     contrasena = txtPassword.Text;
                     tipo = 2;
@@ -106,6 +107,11 @@ namespace Proyecto_DAE.Vistas
             }
 
             return nombreValido && passValida;
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -178,6 +178,7 @@
             Controls.Add(txtUsuario);
             Controls.Add(button1);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Inicio de Sesion";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

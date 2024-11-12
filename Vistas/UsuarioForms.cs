@@ -118,6 +118,13 @@ namespace Proyecto_DAE.Vistas
                 dataGridView1.DataSource = usuarios;
 
                 dataGridView1.Columns["Profesors"].Visible = false;
+                dataGridView1.Columns["Contrasena"].Visible = false;
+            }
+            //AJUSTAR EL ANCHO A LA TABLA
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            foreach (DataGridViewColumn columna in dataGridView1.Columns)
+            {
+                columna.FillWeight = 1;
             }
 
 
@@ -133,8 +140,6 @@ namespace Proyecto_DAE.Vistas
                     txtID.Text = selected.Cells["IdUsuario"].Value.ToString();
                     cmbTipo.Text = selected.Cells["Tipo"].Value.ToString();
                     txtNombre.Text = selected.Cells["NombreUsuario"].Value.ToString();
-                    txtContrasena.Text = selected.Cells["Contrasena"].Value.ToString();
-
 
                 }
                 catch (Exception ex)

@@ -68,7 +68,8 @@ namespace Proyecto_DAE.Vistas
 
             //LABEL
             label1.Left = (this.ClientSize.Width - label1.Width) / 2;
-            lblUser.Left = ((this.ClientSize.Width - lblUser.Width) / 2)+ 155;
+            int margen = 10;
+            lblUser.Left = label1.Left + label1.Width + margen;
 
         }
         private void gestionDeProfesorToolStripMenuItem_Click(object sender, EventArgs e)

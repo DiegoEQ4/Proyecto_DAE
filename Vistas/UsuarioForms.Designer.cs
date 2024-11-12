@@ -136,6 +136,7 @@
             txtContrasena.Name = "txtContrasena";
             txtContrasena.Size = new Size(100, 23);
             txtContrasena.TabIndex = 8;
+            txtContrasena.UseSystemPasswordChar = true;
             // 
             // btnAgregar
             // 
@@ -192,7 +193,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(760, 299);
-            Controls.Add(pictureBox1);
             Controls.Add(btnBorrar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
@@ -205,6 +205,7 @@
             Controls.Add(txtID);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
+            Controls.Add(pictureBox1);
             Name = "UsuarioForms";
             Text = "Gestion de usuarios";
             Load += UsuarioForms_Load;

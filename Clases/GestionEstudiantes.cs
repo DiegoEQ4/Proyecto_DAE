@@ -46,7 +46,7 @@ namespace Proyecto_DAE.Clases
                 if (estudiante_find == null)
                 {
 
-                    MessageBox.Show("ESTUDIANTE NO ENCONTRADO, POR FAVOR VERIFICA EL CARNET");
+                    MessageBox.Show("ESTUDIANTE NO ENCONTRADO, POR FAVOR VERIFICA EL CARNET", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
                 }
@@ -74,7 +74,7 @@ namespace Proyecto_DAE.Clases
                 if (estudiante_find == null)
                 {
 
-                    MessageBox.Show("ESTUDIANTE NO ENCONTRADO, POR FAVOR VERIFICA EL CARNET");
+                    MessageBox.Show("ESTUDIANTE NO ENCONTRADO, POR FAVOR VERIFICA EL CARNET", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
                 }
@@ -88,7 +88,7 @@ namespace Proyecto_DAE.Clases
                     }
                     catch (Exception ex) {
 
-                        MessageBox.Show("ESTUDIANTE SE ENCUENTRA EN UNA ASISTERNCIA, ELIMINAR ESA ASISTENCIA PRIMERO");
+                        MessageBox.Show("ESTUDIANTE SE ENCUENTRA EN UNA ASISTENCIA, ELIMINAR ESA ASISTENCIA PRIMERO", "ERROR", MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 
                 }
