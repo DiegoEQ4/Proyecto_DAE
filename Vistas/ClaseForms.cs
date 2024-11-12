@@ -187,7 +187,6 @@ namespace Proyecto_DAE.Vistas
 
         private void CargarMaterias()
         {
-            MessageBox.Show("Id: " + SessionDatos.UserId);
             using (var query = new RegistroAsistenciaContext())
             {
 
@@ -207,11 +206,6 @@ namespace Proyecto_DAE.Vistas
 
                                     }
                                     ).ToList();
-
-                    foreach (var materia in materias)
-                    {
-                        MessageBox.Show("Id: " + materia.Nombre);
-                    }
 
                     cmbMateria.DataSource = materias;
                     cmbMateria.DisplayMember = "Nombre";
@@ -234,11 +228,6 @@ namespace Proyecto_DAE.Vistas
                                     }
                                    ).ToList();
 
-                    foreach (var materia in materias)
-                    {
-                        MessageBox.Show("Id: " + materia.Nombre);
-                    }
-
                     cmbMateria.DataSource = materias;
                     cmbMateria.DisplayMember = "Nombre";
                     cmbMateria.ValueMember = "IdMateriaGrado";
@@ -257,7 +246,6 @@ namespace Proyecto_DAE.Vistas
             if (cmbMateria.SelectedValue != null)
             {
                 idDetalle = (int)cmbMateria.SelectedValue;
-                MessageBox.Show("Id: " + idDetalle);
             }
 
             var clase = new Clase

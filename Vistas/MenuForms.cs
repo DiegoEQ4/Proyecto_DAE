@@ -84,7 +84,7 @@ namespace Proyecto_DAE.Vistas
             else if (result == DialogResult.No)
             {
                 int idUser = 0;
-                ProfesorForms profeForms = new ProfesorForms(idUser);
+                ProfesorForms profeForms = new ProfesorForms(idUser, 0);
                 profeForms.Show();
 
             }

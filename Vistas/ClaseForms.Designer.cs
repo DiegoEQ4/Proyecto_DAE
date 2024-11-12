@@ -185,9 +185,11 @@
             // txtDuracion
             // 
             txtDuracion.Location = new Point(462, 168);
+            txtDuracion.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             txtDuracion.Name = "txtDuracion";
             txtDuracion.Size = new Size(120, 23);
             txtDuracion.TabIndex = 12;
+            txtDuracion.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label5
             // 

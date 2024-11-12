@@ -27,7 +27,6 @@ namespace Proyecto_DAE.Vistas
 
         private void AsistenciaForms_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("ID DETALLE: " + idAsistencia);
             CargarAlumnos();
         }
 
@@ -90,7 +89,6 @@ namespace Proyecto_DAE.Vistas
                 }
                 catch (Exception ex) { }
                 idDetalle = int.Parse(id);
-                MessageBox.Show("ID: " + idDetalle);
             }
         }
 

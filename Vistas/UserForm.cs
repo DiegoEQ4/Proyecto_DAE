@@ -41,25 +41,40 @@ namespace Proyecto_DAE.Vistas
         {
             using (var query = new RegistroAsistenciaContext())
             {
-                nombreUsuario = txtUser.Text;
-                contrasena = txtPassword.Text;
-                tipo = 2;
+                if (Validaciones()) { 
+                
+                    nombreUsuario = txtUser.Text;
+                    contrasena = txtPassword.Text;
+                    tipo = 2;
 
-                usuario = new Usuario
+                    usuario = new Usuario
+                    {
+                        NombreUsuario = nombreUsuario,
+                        Contrasena = contrasena,
+                        Tipo = tipo,
+                    };
+
+
+
+                    var result = gestionUsuario.InsertUsuario(usuario); //INSERTA USUARIO EN BASE DE DATO
+
+                    if (result)
+                    {
+
+                        int? ultimoId = query.Usuarios.Max(u => (int?)u.IdUsuario);
+                        id = ultimoId.Value;
+                        ProfesorForms profesor = new ProfesorForms(id, 1);
+                        this.Close();
+                        profesor.Show();
+
+                    }
+                }
+                else
                 {
-                    NombreUsuario = nombreUsuario,
-                    Contrasena = contrasena,
-                    Tipo = tipo,
-                };
 
+                    MessageBox.Show("NO PUEDES DEJAR CAMPOS VACIOS ", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-
-                gestionUsuario.InsertUsuario(usuario); //INSERTA USUARIO EN BASE DE DATO
-                int? ultimoId = query.Usuarios.Max(u => (int?)u.IdUsuario);
-                id = ultimoId.Value;
-                ProfesorForms profesor = new ProfesorForms(id);
-                this.Close();
-                profesor.Show();
+                }
             }
         }
 
@@ -67,6 +82,31 @@ namespace Proyecto_DAE.Vistas
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private bool Validaciones()
+        {
+
+            string nombreUsuario = txtUser.Text;
+            string password = txtPassword.Text;
+            bool nombreValido;
+            bool passValida;
+
+            if (!string.IsNullOrWhiteSpace(nombreUsuario) && !string.IsNullOrWhiteSpace(password))
+            {
+                nombreValido = true;
+                passValida = true;
+            }
+            else
+            {
+
+                passValida = false;
+                nombreValido = false;
+
+            }
+
+            return nombreValido && passValida;
+
         }
     }
 }

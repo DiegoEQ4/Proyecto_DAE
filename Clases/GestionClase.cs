@@ -19,16 +19,27 @@ namespace Proyecto_DAE.Clases
                     MessageBox.Show("SELECCIONA UNA MATERIA A IMPARTIR", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
-                else { 
-                
-                    query.Clases.Add(clase);
-                    try
+                else {
+
+                    var materiaExiste = query.Clases.Any(c => c.ContenidoClase == clase.ContenidoClase && c.IdMateriaDetalle == clase.IdMateriaDetalle);
+                    if (materiaExiste)
                     {
-                        query.SaveChanges();
+
+                        MessageBox.Show("ESA CLASE YA EXISTE EN ESE GRADO", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                     }
-                    catch (Exception ex) { 
-                        MessageBox.Show("Error: "+ ex);
+                    else { 
+                    
+                        query.Clases.Add(clase);
+                        try
+                        {
+                            query.SaveChanges();
+
+                        }
+                        catch (Exception ex) { 
+                            MessageBox.Show("Error: "+ ex);
+                        }
+                    
                     }
                 
                 }

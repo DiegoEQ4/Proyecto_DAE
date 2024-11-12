@@ -46,6 +46,7 @@
             btnModificar = new Button();
             btnBorrar = new Button();
             pictureBox1 = new PictureBox();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtCupos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -168,6 +169,7 @@
             dataGridView1.Location = new Point(367, 83);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(386, 171);
@@ -234,12 +236,26 @@
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.IndianRed;
+            button1.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(676, 260);
+            button1.Name = "button1";
+            button1.Size = new Size(77, 43);
+            button1.TabIndex = 13;
+            button1.Text = "Actualizar año";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // GradoForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 64, 64);
             ClientSize = new Size(778, 321);
+            Controls.Add(button1);
             Controls.Add(pictureBox1);
             Controls.Add(btnBorrar);
             Controls.Add(btnModificar);
@@ -279,5 +295,6 @@
         private TextBox txtAnio;
         private ComboBox txtSeccionGrado;
         private PictureBox pictureBox1;
+        private Button button1;
     }
 }

@@ -21,7 +21,7 @@ namespace Proyecto_DAE.Vistas
 
         public int idGrado = 0;
         public int idMateria = 0;
-        public int idDetalle;
+        public int idDetalle = 0;
         public int idProfe;
 
         public AsignarForms()
@@ -79,6 +79,45 @@ namespace Proyecto_DAE.Vistas
             }
         }
 
+        
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+            gestionAsignar.InsertMateria(GetMateriaGrado());
+            CargarDetalleMateria(idGrado);
+
+
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (idDetalle != 0)
+            {
+                gestionAsignar.UpdateMateria(idDetalle, GetMateriaGrado());
+                CargarDetalleMateria(idGrado);
+            }
+            else
+            {
+
+                MessageBox.Show("SELECCIONE UNA MATERIA ASIGNADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            if (idDetalle != 0)
+            {
+                gestionAsignar.DeleteMateria(idDetalle);
+                CargarDetalleMateria(idGrado);
+            }
+            else
+            {
+
+                MessageBox.Show("SELECCIONE UNA MATERIA ASIGNADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         // FUNCIONES 
 
         private MateriaGrado GetMateriaGrado()
@@ -119,6 +158,8 @@ namespace Proyecto_DAE.Vistas
                 dataGrados.Columns["Estudiantes"].Visible = false;
                 dataGrados.Columns["MateriaGrados"].Visible = false;
                 dataGrados.Columns["Anio"].Visible = false;
+
+                dataGrados.DefaultCellStyle.ForeColor = Color.Black;
             }
 
             //AJUSTAR EL ANCHO A LA TABLA
@@ -146,6 +187,8 @@ namespace Proyecto_DAE.Vistas
                 dataMateria.Columns["Descripcion"].Visible = false;
                 dataMateria.Columns["MateriaGrados"].Visible = false;
 
+                dataMateria.DefaultCellStyle.ForeColor = Color.Black;
+
             }
 
             //AJUSTAR EL ANCHO A LA TABLA
@@ -158,6 +201,7 @@ namespace Proyecto_DAE.Vistas
 
         private void CargarDetalleMateria(int id)
         {
+            idDetalle = 0;
             using (var query = new RegistroAsistenciaContext())
             {
                 //CONSULTA PARA OBTENER LOS DATOS 
@@ -193,6 +237,7 @@ namespace Proyecto_DAE.Vistas
                 dataDetalleMateria.Columns["IdMateria"].Visible = false;
                 dataDetalleMateria.Columns["IdProfe"].Visible = false;
 
+                dataDetalleMateria.DefaultCellStyle.ForeColor = Color.Black;
 
                 //AJUSTAR EL ANCHO A LA TABLA
                 dataDetalleMateria.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -208,51 +253,28 @@ namespace Proyecto_DAE.Vistas
 
             using (var query = new RegistroAsistenciaContext())
             {
-                var profes = query.Profesors.ToList();
+                if (SessionDatos.Tipo != 1)
+                {
+                    var profes = query.Profesors
+                        .Where(p => p.Usuario == SessionDatos.UserId)
+                        .ToList();
 
-                cmbProfe.DataSource = profes;
-                cmbProfe.ValueMember = "CarnetProfesor";
-                cmbProfe.DisplayMember = "NombreProfesor";
+                    cmbProfe.DataSource = profes;
+                    cmbProfe.ValueMember = "CarnetProfesor";
+                    cmbProfe.DisplayMember = "NombreProfesor";
+
+                }
+                else if (SessionDatos.Tipo == 1)
+                {
+                    var profes = query.Profesors
+                        .ToList();
+                    cmbProfe.DataSource = profes;
+                    cmbProfe.ValueMember = "CarnetProfesor";
+                    cmbProfe.DisplayMember = "NombreProfesor";
+
+                }
             }
 
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-
-            gestionAsignar.InsertMateria(GetMateriaGrado());
-            CargarDetalleMateria(idGrado);
-
-
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("error" + idDetalle);
-            if (idDetalle != 0)
-            {
-                gestionAsignar.UpdateMateria(idDetalle, GetMateriaGrado());
-                CargarDetalleMateria(idGrado);
-            }
-            else
-            {
-
-                MessageBox.Show("SELECCIONE UNA MATERIA ASIGNADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnBorrar_Click(object sender, EventArgs e)
-        {
-            if (idDetalle != 0)
-            {
-                gestionAsignar.DeleteMateria(idDetalle);
-                CargarDetalleMateria(idGrado);
-            }
-            else
-            {
-
-                MessageBox.Show("SELECCIONE UNA MATERIA ASIGNADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void dataDetalleMateria_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -261,6 +283,11 @@ namespace Proyecto_DAE.Vistas
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

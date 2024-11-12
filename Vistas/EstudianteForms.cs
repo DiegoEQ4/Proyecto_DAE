@@ -56,8 +56,15 @@ namespace Proyecto_DAE.Vistas
         //BORRAR
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            gestionEstudiantes.DeleteEstudiante(int.Parse(txtCarnet.Text));
-            CargarTabla();
+            try { 
+                gestionEstudiantes.DeleteEstudiante(int.Parse(txtCarnet.Text));
+                CargarTabla();
+            
+            }catch {
+
+                MessageBox.Show("SELECCIONA UN CARNET VALIDO!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
         }
 
 

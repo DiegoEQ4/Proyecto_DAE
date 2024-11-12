@@ -83,8 +83,6 @@ namespace Proyecto_DAE.Vistas
                 txtContenido.Text = contenido;
 
                 //OBTENER EL GRADO DE LA CLASE 
-
-                MessageBox.Show("ID CLASE: " + idClase);
                 var grado = (
                     from mg in query.MateriaGrados
                     where mg.Clases.Any(c => c.IdClase == idClase)

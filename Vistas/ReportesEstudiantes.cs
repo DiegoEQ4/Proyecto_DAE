@@ -37,20 +37,47 @@ namespace Proyecto_DAE.Vistas
 
             using (var query = new RegistroAsistenciaContext())
             {
+                if (SessionDatos.Tipo == 1)
+                {
 
-                var grados = query.Grados.ToList();
+                    var grados = query.Grados.ToList();
 
-                dataGrados.DataSource = grados;
+                    dataGrados.DataSource = grados;
 
-                dataGrados.Columns["MateriaGrados"].Visible = false;
-                dataGrados.Columns["Estudiantes"].Visible = false;
-                dataGrados.Columns["NombreCompleto"].Visible = false;
+                    dataGrados.Columns["MateriaGrados"].Visible = false;
+                    dataGrados.Columns["Estudiantes"].Visible = false;
+                    dataGrados.Columns["NombreCompleto"].Visible = false;
 
 
 
-                dataGrados.Columns["IdGrado"].HeaderText = "ID";
-                dataGrados.Columns["NombreGrado"].HeaderText = "Grado";
-                dataGrados.Columns["Anio"].HeaderText = "Año";
+                    dataGrados.Columns["IdGrado"].HeaderText = "ID";
+                    dataGrados.Columns["NombreGrado"].HeaderText = "Grado";
+                    dataGrados.Columns["Anio"].HeaderText = "Año";
+
+                }
+                else {
+
+                    var grados = (
+                            from g in query.Grados
+                            join mg in query.MateriaGrados
+                            on g.IdGrado equals mg.IdGradoDetalle
+                            join p in query.Profesors
+                            on mg.IdProfeDetalle equals p.CarnetProfesor
+                            where p.Usuario == SessionDatos.UserId
+                            select new { 
+                            
+                                g.IdGrado,
+                                g.NombreGrado,
+                                g.Seccion,
+                                g.Anio
+
+                            }
+                        ).ToList();
+                    dataGrados.DataSource = grados;
+                    dataGrados.Columns["IdGrado"].HeaderText = "ID";
+                    dataGrados.Columns["NombreGrado"].HeaderText = "Grado";
+                    dataGrados.Columns["Anio"].HeaderText = "Año";
+                }
 
 
 

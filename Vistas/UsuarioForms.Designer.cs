@@ -79,12 +79,15 @@
             // 
             // cmbTipo
             // 
+            cmbTipo.DisplayMember = "1";
+            cmbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTipo.FormattingEnabled = true;
             cmbTipo.Items.AddRange(new object[] { "1", "2" });
             cmbTipo.Location = new Point(522, 212);
             cmbTipo.Name = "cmbTipo";
             cmbTipo.Size = new Size(100, 23);
             cmbTipo.TabIndex = 3;
+            cmbTipo.ValueMember = "2";
             // 
             // label2
             // 

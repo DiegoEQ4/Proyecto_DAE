@@ -16,13 +16,15 @@ namespace Proyecto_DAE.Vistas
     public partial class ProfesorForms : Form
     {
         int idUser = 0;
+        int tipoC;
         private List<Profesor> profesorList;
 
         GestionProfes gestionProfes = new GestionProfes();
-        public ProfesorForms(int id)
+        public ProfesorForms(int id, int tipo)
         {
             InitializeComponent();
             idUser = id;
+            tipoC = tipo;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -65,6 +67,7 @@ namespace Proyecto_DAE.Vistas
 
                 dataGridView1.Columns["MateriaGrados"].Visible = false;
                 dataGridView1.Columns["UsuarioNavigation"].Visible = false;
+                dataGridView1.Columns["Usuario"].Visible = false;
 
                 dataGridView1.Columns["CarnetProfesor"].HeaderText = "Carnet";
                 dataGridView1.Columns["NombreProfesor"].HeaderText = "Nombre Completo";
@@ -222,7 +225,18 @@ namespace Proyecto_DAE.Vistas
                 txtTitulo.BackColor = Color.LightCoral;
             }
 
-            btnModificar.Enabled = apellidoValido && nombreValido && correoValido && telefonoValido && tituloValido;
+            if (idUser != 0)
+            {
+
+                btnAgregar.Enabled = apellidoValido && nombreValido && correoValido && telefonoValido && tituloValido;
+
+            }
+            else if (idUser == 0) {
+
+                btnModificar.Enabled = apellidoValido && nombreValido && correoValido && telefonoValido && tituloValido;
+
+            }
+
 
 
 

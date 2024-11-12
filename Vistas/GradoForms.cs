@@ -18,7 +18,7 @@ namespace Proyecto_DAE.Vistas
     public partial class GradoForms : Form
     {
         private Grado grado;
-        
+
         GestionGrado gestionGrado = new GestionGrado();
         RegistroAsistenciaContext context = new RegistroAsistenciaContext();
 
@@ -33,6 +33,7 @@ namespace Proyecto_DAE.Vistas
             CargarTabla();
             if (SessionDatos.Tipo > 1)
             {
+                button1.Visible = false;
                 btnBorrar.Enabled = false;
             }
 
@@ -104,6 +105,7 @@ namespace Proyecto_DAE.Vistas
             dataGridView1.Columns["Estudiantes"].Visible = false;
             dataGridView1.Columns["MateriaGrados"].Visible = false;
             dataGridView1.Columns["NombreCompleto"].Visible = false;
+            dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
 
             dataGridView1.Refresh();
 
@@ -144,7 +146,8 @@ namespace Proyecto_DAE.Vistas
                 {
                     txtNombreGrado.BackColor = Color.LightPink;
                 }
-                else { 
+                else
+                {
                     txtNombreGrado.BackColor = Color.White;
                 }
 
@@ -171,12 +174,14 @@ namespace Proyecto_DAE.Vistas
                         txtAnio.BackColor = Color.White;
 
                     }
-                    else {
+                    else
+                    {
                         txtAnio.BackColor = Color.LightPink;
 
                     }
                 }
-                else {
+                else
+                {
                     txtAnio.BackColor = Color.LightPink;
 
 
@@ -194,5 +199,30 @@ namespace Proyecto_DAE.Vistas
             btnModificar.Enabled = nombreValido && anioValido;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("DESEA PASAR AL SIGUIENTE AÑO?", "CONFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
+            if (result == DialogResult.Yes) {
+
+                using (var query = new RegistroAsistenciaContext()) { 
+                    int getYear = DateTime.Today.Year;
+                    getYear = getYear + 1;
+                    var date_Find = query.Grados
+                        .Where(g => g.Anio == getYear)
+                        .ToList();
+                    foreach (var date in date_Find) {
+
+                        var id = date.IdGrado;
+                        var gradoFind = query.Grados.Find(id);
+                        gradoFind.Anio = getYear-1;
+                        query.SaveChanges();
+                    };
+                
+                }
+                CargarTabla();
+            }
+        }
     }
 }

@@ -45,16 +45,19 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            label9 = new Label();
+            groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dataGrados).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataDetalleMateria).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataMateria).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGrados
             // 
             dataGrados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGrados.Location = new Point(94, 34);
+            dataGrados.Location = new Point(9, 42);
             dataGrados.MultiSelect = false;
             dataGrados.Name = "dataGrados";
             dataGrados.ReadOnly = true;
@@ -115,7 +118,7 @@
             // dataDetalleMateria
             // 
             dataDetalleMateria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataDetalleMateria.Location = new Point(94, 194);
+            dataDetalleMateria.Location = new Point(94, 236);
             dataDetalleMateria.MultiSelect = false;
             dataDetalleMateria.Name = "dataDetalleMateria";
             dataDetalleMateria.ReadOnly = true;
@@ -128,12 +131,12 @@
             // dataMateria
             // 
             dataMateria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataMateria.Location = new Point(512, 30);
+            dataMateria.Location = new Point(401, 38);
             dataMateria.MultiSelect = false;
             dataMateria.Name = "dataMateria";
             dataMateria.ReadOnly = true;
             dataMateria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataMateria.Size = new Size(241, 132);
+            dataMateria.Size = new Size(267, 132);
             dataMateria.TabIndex = 9;
             dataMateria.SelectionChanged += dataMateria_SelectionChanged;
             // 
@@ -199,7 +202,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Stencil", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(203, 9);
+            label4.Location = new Point(262, 23);
             label4.Name = "label4";
             label4.Size = new Size(91, 16);
             label4.TabIndex = 15;
@@ -211,7 +214,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Stencil", 9.75F);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(587, 8);
+            label5.Location = new Point(562, 19);
             label5.Name = "label5";
             label5.Size = new Size(106, 16);
             label5.TabIndex = 16;
@@ -222,34 +225,58 @@
             label6.AutoSize = true;
             label6.Font = new Font("Stencil", 9.75F);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(365, 174);
+            label6.Location = new Point(614, 217);
             label6.Name = "label6";
-            label6.Size = new Size(120, 16);
+            label6.Size = new Size(139, 16);
             label6.TabIndex = 17;
-            label6.Text = "Detalle Materia";
+            label6.Text = "Detalle de Materia";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Stencil", 9.75F);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(103, 217);
+            label9.Name = "label9";
+            label9.Size = new Size(111, 16);
+            label9.TabIndex = 20;
+            label9.Text = "SALIDA DE DATOS";
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(dataMateria);
+            groupBox1.Controls.Add(dataGrados);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(label4);
+            groupBox1.ForeColor = Color.White;
+            groupBox1.Location = new Point(85, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(677, 186);
+            groupBox1.TabIndex = 21;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "ENTRADA DE DATOS";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // AsignarForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 64, 64);
-            ClientSize = new Size(1001, 364);
+            ClientSize = new Size(1001, 398);
+            Controls.Add(label9);
             Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(pictureBox1);
             Controls.Add(btnBorrar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
             Controls.Add(txtMateria);
-            Controls.Add(dataMateria);
             Controls.Add(dataDetalleMateria);
             Controls.Add(txtGrado);
             Controls.Add(label3);
             Controls.Add(cmbProfe);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(dataGrados);
+            Controls.Add(groupBox1);
+            Controls.Add(pictureBox1);
             Name = "AsignarForms";
             Text = "Asignar materias";
             Load += AsignarForms_Load;
@@ -257,6 +284,8 @@
             ((System.ComponentModel.ISupportInitialize)dataDetalleMateria).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataMateria).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -279,5 +308,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private Label label9;
+        private GroupBox groupBox1;
     }
 }

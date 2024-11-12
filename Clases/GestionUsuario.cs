@@ -11,12 +11,31 @@ namespace Proyecto_DAE.Clases
     {
 
 
-        public void InsertUsuario(Usuario usuario)
+        public bool InsertUsuario(Usuario usuario)
         {
+            bool result;
+
             using (var query = new RegistroAsistenciaContext())
             {
-                query.Usuarios.Add(usuario);
-                query.SaveChanges();
+                var usuario_exist = query.Usuarios
+                    .Where(u => u.NombreUsuario == usuario.NombreUsuario)
+                    .Count();
+
+                if (usuario_exist > 0)
+                {
+
+                    MessageBox.Show("EL USUARIO YA EXISTE", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    result = false;
+                }
+                else { 
+                
+                    query.Usuarios.Add(usuario);
+                    query.SaveChanges();
+                    result = true;
+                
+                }
+
+                return result;
 
             }
         }
@@ -31,11 +50,23 @@ namespace Proyecto_DAE.Clases
                 if (user_find != null)
                 {
 
-                    user_find.NombreUsuario = usuario.NombreUsuario;
-                    user_find.Contrasena = usuario.Contrasena;
-                    user_find.Tipo = usuario.Tipo;
-                    query.SaveChanges();
+                    var usuario_exist = query.Usuarios
+                        .Where(u => u.NombreUsuario == usuario.NombreUsuario)
+                        .Count();
 
+                    if (usuario_exist > 0)
+                    {
+                        MessageBox.Show("EL NOMBRE DE USUARIO YA EXISTE", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else { 
+                    
+                        user_find.NombreUsuario = usuario.NombreUsuario;
+                        user_find.Contrasena = usuario.Contrasena;
+                        user_find.Tipo = usuario.Tipo;
+                        query.SaveChanges();
+                    
+                    
+                    }
                 }
                 else {
 
