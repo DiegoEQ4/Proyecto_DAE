@@ -203,7 +203,7 @@
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Name = "UsuarioForms";
-            Text = "UsuarioForms";
+            Text = "Gestion de usuarios";
             Load += UsuarioForms_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
