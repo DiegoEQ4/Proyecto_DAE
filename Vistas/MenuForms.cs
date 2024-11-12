@@ -53,10 +53,22 @@ namespace Proyecto_DAE.Vistas
 
             }
 
-            //CENTRA LA IMAGEN
-            pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width) / 2;
-            pictureBox1.Top = (this.ClientSize.Height - pictureBox1.Height) / 2;
+            //POSICIONAR OBJETOS
+            //MENU
 
+            //imagen
+            pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width) / 2;
+            pictureBox2.Left = -25;
+            pictureBox3.Left = this.ClientSize.Width - pictureBox3.Width + 25; 
+            pictureBox4.Left = (this.ClientSize.Width - pictureBox4.Width) / 2;
+
+
+            //BOTON
+            btnCerrarSesion.Left = (this.ClientSize.Width - btnCerrarSesion.Width) / 2;
+
+            //LABEL
+            label1.Left = (this.ClientSize.Width - label1.Width) / 2;
+            lblUser.Left = (this.ClientSize.Width - lblUser.Width) / 2;
 
         }
         private void gestionDeProfesorToolStripMenuItem_Click(object sender, EventArgs e)

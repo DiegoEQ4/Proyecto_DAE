@@ -61,7 +61,6 @@
             // menuStrip1
             // 
             menuStrip1.BackColor = Color.FromArgb(0, 64, 64);
-            menuStrip1.Dock = DockStyle.None;
             menuStrip1.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             menuStrip1.GripMargin = new Padding(10, 9, 10, 10);
             menuStrip1.ImageScalingSize = new Size(24, 24);
@@ -69,7 +68,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(10, 30, 10, 30);
-            menuStrip1.Size = new Size(961, 78);
+            menuStrip1.Size = new Size(950, 79);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             menuStrip1.ItemClicked += menuStrip1_ItemClicked;
@@ -78,7 +77,7 @@
             // 
             gestionDeMateriaToolStripMenuItem.ForeColor = Color.White;
             gestionDeMateriaToolStripMenuItem.Name = "gestionDeMateriaToolStripMenuItem";
-            gestionDeMateriaToolStripMenuItem.Size = new Size(134, 18);
+            gestionDeMateriaToolStripMenuItem.Size = new Size(134, 19);
             gestionDeMateriaToolStripMenuItem.Text = "Gestion de Materia";
             gestionDeMateriaToolStripMenuItem.Click += gestionDeMateriaToolStripMenuItem_Click;
             // 
@@ -87,7 +86,7 @@
             gestionDeGradoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { asignarMateriasAGradoToolStripMenuItem, añadirEditarOBorrarToolStripMenuItem });
             gestionDeGradoToolStripMenuItem.ForeColor = Color.White;
             gestionDeGradoToolStripMenuItem.Name = "gestionDeGradoToolStripMenuItem";
-            gestionDeGradoToolStripMenuItem.Size = new Size(124, 18);
+            gestionDeGradoToolStripMenuItem.Size = new Size(124, 19);
             gestionDeGradoToolStripMenuItem.Text = "Gestion de Grado";
             gestionDeGradoToolStripMenuItem.Click += gestionDeGradoToolStripMenuItem_Click;
             // 
@@ -110,7 +109,7 @@
             gestionHumanoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestionDeEstudianteToolStripMenuItem, gestionDeProfesorToolStripMenuItem });
             gestionHumanoToolStripMenuItem.ForeColor = Color.White;
             gestionHumanoToolStripMenuItem.Name = "gestionHumanoToolStripMenuItem";
-            gestionHumanoToolStripMenuItem.Size = new Size(120, 18);
+            gestionHumanoToolStripMenuItem.Size = new Size(120, 19);
             gestionHumanoToolStripMenuItem.Text = "Gestion Humano";
             // 
             // gestionDeEstudianteToolStripMenuItem
@@ -131,7 +130,7 @@
             // 
             gestionDeClasesToolStripMenuItem.ForeColor = Color.White;
             gestionDeClasesToolStripMenuItem.Name = "gestionDeClasesToolStripMenuItem";
-            gestionDeClasesToolStripMenuItem.Size = new Size(125, 18);
+            gestionDeClasesToolStripMenuItem.Size = new Size(125, 19);
             gestionDeClasesToolStripMenuItem.Text = "Gestion de Clases";
             gestionDeClasesToolStripMenuItem.Click += gestionDeClasesToolStripMenuItem_Click;
             // 
@@ -139,7 +138,7 @@
             // 
             gestionDeAsistenciasToolStripMenuItem.ForeColor = Color.White;
             gestionDeAsistenciasToolStripMenuItem.Name = "gestionDeAsistenciasToolStripMenuItem";
-            gestionDeAsistenciasToolStripMenuItem.Size = new Size(155, 18);
+            gestionDeAsistenciasToolStripMenuItem.Size = new Size(155, 19);
             gestionDeAsistenciasToolStripMenuItem.Text = "Gestion de Asistencias";
             gestionDeAsistenciasToolStripMenuItem.Click += gestionDeAsistenciasToolStripMenuItem_Click;
             // 
@@ -147,7 +146,7 @@
             // 
             gestionUToolStripMenuItem.ForeColor = Color.White;
             gestionUToolStripMenuItem.Name = "gestionUToolStripMenuItem";
-            gestionUToolStripMenuItem.Size = new Size(120, 18);
+            gestionUToolStripMenuItem.Size = new Size(120, 19);
             gestionUToolStripMenuItem.Text = "Gestion Usuarios";
             gestionUToolStripMenuItem.Click += gestionUToolStripMenuItem_Click;
             // 
@@ -156,7 +155,7 @@
             reportesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { reportesDeAsistenciaToolStripMenuItem, reporteDeEstudiantesToolStripMenuItem });
             reportesToolStripMenuItem.ForeColor = Color.White;
             reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            reportesToolStripMenuItem.Size = new Size(161, 18);
+            reportesToolStripMenuItem.Size = new Size(161, 19);
             reportesToolStripMenuItem.Text = "Generacion de reportes";
             // 
             // reportesDeAsistenciaToolStripMenuItem
