@@ -83,9 +83,18 @@ namespace Proyecto_DAE.Vistas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (idMateria != 0)
+            {
 
-            gestionAsignar.InsertMateria(GetMateriaGrado());
-            CargarDetalleMateria(idGrado);
+                gestionAsignar.InsertMateria(GetMateriaGrado());
+                CargarDetalleMateria(idGrado);
+
+            }
+            else {
+
+                MessageBox.Show("SELECCIONE UNA MATERIA PARA ASIGNAR", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
 
         }

@@ -74,6 +74,8 @@
             // 
             // txtSeccionGrado
             // 
+            txtSeccionGrado.DisplayMember = "A";
+            txtSeccionGrado.DropDownStyle = ComboBoxStyle.DropDownList;
             txtSeccionGrado.FormattingEnabled = true;
             txtSeccionGrado.Items.AddRange(new object[] { "A", "B", "C" });
             txtSeccionGrado.Location = new Point(66, 104);

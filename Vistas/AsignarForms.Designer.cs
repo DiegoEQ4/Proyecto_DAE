@@ -101,6 +101,7 @@
             // 
             // cmbProfe
             // 
+            cmbProfe.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProfe.FormattingEnabled = true;
             cmbProfe.Location = new Point(843, 124);
             cmbProfe.Name = "cmbProfe";

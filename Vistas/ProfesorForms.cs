@@ -29,9 +29,20 @@ namespace Proyecto_DAE.Vistas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("id: " + idUser);
-            gestionProfes.InsertProfes(GetProfesor());
-            CargarTabla();
+            int result = 0;
+            if (int.TryParse(txtCarnetProfe.Text, out result))
+            {
+
+                gestionProfes.InsertProfes(GetProfesor());
+                CargarTabla();
+                this.Close();
+
+            }
+            else {
+
+                MessageBox.Show("INGRESA UN CARNET VALIDO", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            
+            }
         }
 
         //PERMISOS DEPENDIENDO DE OPCION
@@ -98,6 +109,7 @@ namespace Proyecto_DAE.Vistas
 
         private void ProfesorForms_Load(object sender, EventArgs e)
         {
+            Validaciones();
             CargarTabla();
             PermisosUser();
         }

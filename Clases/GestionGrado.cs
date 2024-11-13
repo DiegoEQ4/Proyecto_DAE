@@ -68,12 +68,24 @@ namespace Proyecto_DAE.Clases
             using (var query = new RegistroAsistenciaContext())
             {
                 var gradoFind = query.Grados.Find(id);
-                query.Grados.Remove(gradoFind);
-                try { 
-                    query.SaveChanges();
-                
-                }catch (Exception ex) {
-                    MessageBox.Show("Error: Uno o mas estudiante se asocian a este grado no se puede eliminar", "ERROR",  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (gradoFind != null)
+                {
+
+                    try
+                    {
+                        query.Grados.Remove(gradoFind);
+                        query.SaveChanges();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: Uno o mas estudiante se asocian a este grado no se puede eliminar", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+                else {
+                    MessageBox.Show("No se encontro el grado a borrar", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
 
             }

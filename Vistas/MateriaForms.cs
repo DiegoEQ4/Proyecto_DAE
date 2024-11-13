@@ -27,6 +27,7 @@ namespace Proyecto_DAE.Vistas
         }
         private void MateriaForms_Load(object sender, EventArgs e)
         {
+            ActualizarEstadoBotones();
             CargarTabla();
             if (SessionDatos.Tipo > 1)
             {
@@ -38,15 +39,15 @@ namespace Proyecto_DAE.Vistas
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             gestionMateria.InsertMateria(GetMateria());
+            ClearTxt(); 
             CargarTabla();
-            ClearTxt();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             gestionMateria.UpdateMateria(GetMateria(), int.Parse(txtIdMateria.Text));
-            CargarTabla();
             ClearTxt();
+            CargarTabla();
         }
         private void btnBorrar_Click(object sender, EventArgs e)
         {
@@ -58,8 +59,8 @@ namespace Proyecto_DAE.Vistas
                 if (!txtIdMateria.Text.IsNullOrEmpty())
                 {
                     gestionMateria.DeleteMateria(int.Parse(txtIdMateria.Text));
-                    CargarTabla();
                     ClearTxt();
+                    CargarTabla();
                 }
                 else
                 {
@@ -173,7 +174,7 @@ namespace Proyecto_DAE.Vistas
         }
         private void ClearTxt()
         {
-
+            txtIdMateria.Clear();
             txtNombreMateria.Clear();
             txtDescripcion.Clear();
             txtDuracion.Value = 1;

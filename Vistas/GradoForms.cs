@@ -30,6 +30,7 @@ namespace Proyecto_DAE.Vistas
 
         private void GradoForms_Load(object sender, EventArgs e)
         {
+            ActualizarEstadoBotones();
             CargarTabla();
             if (SessionDatos.Tipo > 1)
             {
@@ -50,36 +51,59 @@ namespace Proyecto_DAE.Vistas
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            gestionGrado.InsertGrado(GetGrado());
-            CargarTabla();
+            if (!txtSeccionGrado.Text.IsNullOrEmpty())
+            {
+
+                gestionGrado.InsertGrado(GetGrado());
+                CargarTabla();
+
+            }
+            else {
+
+                MessageBox.Show("SELECCIONA UNA SECCION", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
 
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            gestionGrado.UpdateGrado(GetGrado(), int.Parse(txtIdGrado.Text));
-            context.SaveChanges();
+            int result = 0;
+            if (!txtIdGrado.Text.IsNullOrEmpty() || int.TryParse(txtIdGrado.Text, out result)) { 
+            
+                gestionGrado.UpdateGrado(GetGrado(), int.Parse(txtIdGrado.Text));
+                context.SaveChanges();
+                CargarTabla();
+
+            }
+            else
+            {
+                MessageBox.Show("SELECCIONA UN GRADO", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
 
 
-            CargarTabla();
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            if (!txtIdGrado.Text.IsNullOrEmpty())
+            int result = 0;
+            if (!txtIdGrado.Text.IsNullOrEmpty() || int.TryParse(txtIdGrado.Text, out result))
             {
                 gestionGrado.DeleteGrado(int.Parse(txtIdGrado.Text));
+                txtIdGrado.Clear();
                 CargarTabla();
             }
             else
             {
-                MessageBox.Show("SELECCIONA UN GRADO");
+                MessageBox.Show("SELECCIONA UN GRADO","ADVERTENCIA",MessageBoxButtons.OK,MessageBoxIcon.Warning);
 
             }
         }
 
         private Grado GetGrado()
         {
+
             grado = new Grado
             {
                 NombreGrado = txtNombreGrado.Text,
@@ -195,6 +219,7 @@ namespace Proyecto_DAE.Vistas
             bool nombreValido = !string.IsNullOrEmpty(txtNombreGrado.Text) && !txtNombreGrado.Text.All(char.IsDigit);
             bool anioValido = int.TryParse(txtAnio.Text, out int anio) && anio > 1500;
 
+
             btnAgregar.Enabled = nombreValido && anioValido;
             btnModificar.Enabled = nombreValido && anioValido;
         }
@@ -208,7 +233,7 @@ namespace Proyecto_DAE.Vistas
 
                 using (var query = new RegistroAsistenciaContext()) { 
                     int getYear = DateTime.Today.Year;
-                    getYear = getYear + 1;
+                    getYear = getYear;
                     var date_Find = query.Grados
                         .Where(g => g.Anio == getYear)
                         .ToList();
@@ -216,7 +241,7 @@ namespace Proyecto_DAE.Vistas
 
                         var id = date.IdGrado;
                         var gradoFind = query.Grados.Find(id);
-                        gradoFind.Anio = getYear-1;
+                        gradoFind.Anio = getYear+1;
                         query.SaveChanges();
                     };
                 
