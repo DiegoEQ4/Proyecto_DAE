@@ -193,18 +193,6 @@ namespace Proyecto_DAE.Vistas
 
             btnAgregar.Enabled = nombreValido && apellidoValido;
             btnEditar.Enabled = nombreValido && apellidoValido;
-
-            if (!nombreValido)
-            {
-
-                txtNombre.Focus();
-            }
-
-            if (!apellidoValido)
-            {
-
-                txtApellido.Focus();
-            }
         }
 
         private bool Validaciones()
