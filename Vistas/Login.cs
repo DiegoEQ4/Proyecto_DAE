@@ -45,5 +45,25 @@ namespace Proyecto_DAE
         {
 
         }
+
+        private void txtContrasena_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) { 
+            
+                int idUser = login.VerificarUser(txtUsuario.Text, txtContrasena.Text);
+                if (idUser != 0)
+                {
+                    MenuForms menuF = new MenuForms(idUser);
+                    menuF.Show();
+                    this.Hide();
+                }
+            
+            }
+        }
     }
 }

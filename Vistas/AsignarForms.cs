@@ -213,30 +213,66 @@ namespace Proyecto_DAE.Vistas
             idDetalle = 0;
             using (var query = new RegistroAsistenciaContext())
             {
+
+                if (SessionDatos.Tipo != 1)
+                {
+
+                    //CONSULTA PARA OBTENER LOS DATOS 
+                    var materiaDetalle = (from mg in query.MateriaGrados
+                                          join g in query.Grados
+                                          on mg.IdGradoDetalle equals g.IdGrado
+                                          join m in query.Materias
+                                          on mg.IdMateriaDetalle equals m.IdMateria
+                                          join p in query.Profesors
+                                          on mg.IdProfeDetalle equals p.CarnetProfesor
+
+                                          where mg.IdGradoDetalle == id && p.Usuario == SessionDatos.UserId
+                                          select new
+                                          {
+                                              IdDetalle = mg.IdMateriaGrado,
+                                              IdGrado = g.IdGrado,
+                                              Grado = g.NombreGrado,
+                                              IdMateria = m.IdMateria,
+                                              Materia = m.NombreMateria,
+                                              IdProfe = p.CarnetProfesor,
+                                              Profesor = p.NombreProfesor,
+
+                                          }
+                                            ).ToList();
+
+                    dataDetalleMateria.DataSource = materiaDetalle;
+
+
+
+                }
+                else if(SessionDatos.Tipo == 1){
+
+                    var materiaDetalle = (from mg in query.MateriaGrados
+                                          join g in query.Grados
+                                          on mg.IdGradoDetalle equals g.IdGrado
+                                          join m in query.Materias
+                                          on mg.IdMateriaDetalle equals m.IdMateria
+                                          join p in query.Profesors
+                                          on mg.IdProfeDetalle equals p.CarnetProfesor
+
+                                          where mg.IdGradoDetalle == id
+                                          select new
+                                          {
+                                              IdDetalle = mg.IdMateriaGrado,
+                                              IdGrado = g.IdGrado,
+                                              Grado = g.NombreGrado,
+                                              IdMateria = m.IdMateria,
+                                              Materia = m.NombreMateria,
+                                              IdProfe = p.CarnetProfesor,
+                                              Profesor = p.NombreProfesor,
+
+                                          }
+                            ).ToList();
+                    dataDetalleMateria.DataSource = materiaDetalle;
+                }
                 //CONSULTA PARA OBTENER LOS DATOS 
-                var materiaDetalle = (from mg in query.MateriaGrados
-                                      join g in query.Grados
-                                      on mg.IdGradoDetalle equals g.IdGrado
-                                      join m in query.Materias
-                                      on mg.IdMateriaDetalle equals m.IdMateria
-                                      join p in query.Profesors
-                                      on mg.IdProfeDetalle equals p.CarnetProfesor
 
-                                      where mg.IdGradoDetalle == id
-                                      select new
-                                      {
-                                          IdDetalle = mg.IdMateriaGrado,
-                                          IdGrado = g.IdGrado,
-                                          Grado = g.NombreGrado,
-                                          IdMateria = m.IdMateria,
-                                          Materia = m.NombreMateria,
-                                          IdProfe = p.CarnetProfesor,
-                                          Profesor = p.NombreProfesor,
 
-                                      }
-                                        ).ToList();
-
-                dataDetalleMateria.DataSource = materiaDetalle;
 
                 dataDetalleMateria.Columns["Materia"].HeaderText = "Materia";
                 dataDetalleMateria.Columns["Grado"].HeaderText = "Grado";

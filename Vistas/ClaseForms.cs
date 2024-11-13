@@ -207,8 +207,7 @@ namespace Proyecto_DAE.Vistas
 
                                     }
                                     )
-                                    .ToList()
-                                    .OrderBy(g => g.Seccion);
+                                    .ToList();
 
                     cmbMateria.DataSource = materias;
                     cmbMateria.DisplayMember = "Nombre";
